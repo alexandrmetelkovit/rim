@@ -1,0 +1,25 @@
+.header {
+  height: 60px;
+  box-shadow: -2px 0 8px 2px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    cursor: pointer;
+    transition: 0.2s all ease-in;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 15px;
+  }
+}
