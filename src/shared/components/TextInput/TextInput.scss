@@ -1,0 +1,43 @@
+.text-input {
+  width: 240px;
+  height: 56px;
+  border: 1px solid black;
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  gap: 5px;
+  border-radius: 8px;
+  border: 1px solid #00000080;
+
+  &_underlined {
+    width: 178px;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid #000;
+    border-radius: 0px;
+    padding: 0;
+  }
+
+  &__icon {
+    min-width: 24px;
+    min-height: 24px;
+  }
+
+  &__field {
+    width: 166px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  &__clear-button {
+    background-color: transparent;
+    min-width: 9px;
+    min-height: 9px;
+    cursor: pointer;
+    transition: 0.2s opacity ease-in;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
