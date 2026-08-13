@@ -9,6 +9,12 @@
       margin: 0 auto;
       width: 600px;
       height: 200px;
+      user-select: none;
     }
+  }
+
+  &__body {
+    display: flex;
+    gap: 25px;
   }
 }

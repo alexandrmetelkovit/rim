@@ -1,0 +1,94 @@
+.select {
+  width: 240px;
+  height: auto;
+  position: relative;
+  display: flex;
+
+  &_small {
+    width: 94px;
+    height: 21px;
+  }
+
+  &__button {
+    width: 100%;
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #393939;
+    border-radius: 6px;
+    background: transparent;
+    transition: 0.2s all ease-in;
+    cursor: pointer;
+
+    &_small {
+      width: 100%;
+      height: 21px;
+      padding: 2px 5px;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__title {
+    color: #00000099;
+    line-height: 19px;
+    user-select: none;
+
+    &_small {
+      font-size: 14px;
+    }
+  }
+
+  &__arrow {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s ease-in;
+
+    &_open {
+      transform: rotate(180deg);
+    }
+
+    &_small {
+      width: 9px;
+    }
+  }
+
+  &__list {
+    width: 100%;
+    position: absolute;
+    top: calc(100% + 8px);
+    border: 1px solid #393939;
+    border-radius: 6px;
+    z-index: 10;
+
+    &_small {
+      top: calc(100% + 7px);
+    }
+  }
+
+  &__item {
+    height: 40px;
+    padding: 10px 15px;
+    font-size: 16px;
+    line-height: inherit;
+    transition: 0.2s all ease-in;
+    cursor: pointer;
+    color: #00000099;
+
+    &_small {
+      font-size: 14px;
+      padding: 5px;
+      height: 34px;
+    }
+
+    &:hover {
+      opacity: 0.7;
+      background-color: rgb(113, 138, 160);
+      border-radius: 2px;
+    }
+  }
+}
