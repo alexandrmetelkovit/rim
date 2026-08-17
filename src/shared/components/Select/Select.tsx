@@ -1,5 +1,6 @@
 import { type ComponentType, useEffect, useRef, useState } from 'react';
 import { ArrowDown } from '@/shared/assets';
+import { classNames } from '@/shared/helpers';
 import './Select.scss';
 
 export interface Option<T> {
@@ -67,14 +68,14 @@ export const Select = <T,>({
 
   return (
     <div
-      className={`select select_${size}`}
+      className={classNames('select', `select_${size}`)}
       ref={componentRef}
     >
       <button
         onClick={toggleSelect}
-        className={`select__button select__button_${size}`}
+        className={classNames('select__button', `select__button_${size}`)}
       >
-        <span className={`select__title select__title_${size}`}>
+        <span className={classNames('select__title', `select__title_${size}`)}>
           {selectedOption ? (
             <OptionComponent option={selectedOption} />
           ) : (
@@ -83,16 +84,18 @@ export const Select = <T,>({
         </span>
 
         <ArrowDown
-          className={`select__arrow select__arrow_${size} ${isOpen ? 'select__arrow_open' : ''}`}
+          className={classNames('select__arrow', `select__arrow_${size}`, {
+            select__arrow_open: isOpen
+          })}
         />
       </button>
 
       {isOpen && (
-        <ol className={`select__list select__list_${size}`}>
+        <ol className={classNames('select__list', `select__list_${size}`)}>
           {options.map((option) => (
             <li
               key={String(option.value)}
-              className={`select__item select__item_${size}`}
+              className={classNames('select__item', `select__item_${size}`)}
               onClick={() => handleChangeOptions(option.value)}
             >
               <OptionComponent option={option} />
