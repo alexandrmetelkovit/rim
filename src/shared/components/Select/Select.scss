@@ -34,9 +34,12 @@
   }
 
   &__title {
-    color: #00000099;
+    color: #0009;
     line-height: 19px;
     user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 
     &_small {
       font-size: 14px;
@@ -77,17 +80,17 @@
     line-height: inherit;
     transition: 0.2s all ease-in;
     cursor: pointer;
-    color: #00000099;
+    color: #0009;
 
     &_small {
       font-size: 14px;
       padding: 5px;
-      height: 34px;
+      height: auto;
     }
 
     &:hover {
       opacity: 0.7;
-      background-color: rgb(113, 138, 160);
+      background-color: rgb(113 138 160);
       border-radius: 2px;
     }
   }

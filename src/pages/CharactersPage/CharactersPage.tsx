@@ -1,16 +1,30 @@
-import { useState } from 'react';
-import type { Status } from '@/shared/types';
-import { BannerCharactersPage, SearchIcon } from '@/shared/assets';
-import { SPECIES_OPTIONS, STATUS_OPTIONS } from '@/shared/constants';
-import { Select, StatusOption, TextInput } from '@/shared/components';
+import { BannerCharactersPage } from '@/shared/assets';
+import {
+  CharacterCard,
+  type CharacterCardProps
+} from '@/widgets/CharacterCard/CharacterCard';
 import './CharactersPage.scss';
 
-export const CharactersPage = () => {
-  const [selectedSpecies, setSelectedSpecies] = useState('');
-  const [selectedStatus, setSelectedStatus] = useState<Status>('unknown');
-  const [name, setName] = useState('');
-  const [nameUnderlined, setnameUnderlined] = useState('');
+const mockCharacters: CharacterCardProps[] = [
+  {
+    id: '1',
+    name: 'Rick Sanchez',
+    gender: 'Male',
+    species: 'Human',
+    location: 'Earth',
+    status: 'alive'
+  },
+  {
+    id: '2',
+    name: 'pitkin Sanchez',
+    gender: 'Male',
+    species: 'Human',
+    location: 'Earth',
+    status: 'dead'
+  }
+];
 
+export const CharactersPage = () => {
   return (
     <div className='characters-page container'>
       <div className='characters-page__banner'>
@@ -22,36 +36,9 @@ export const CharactersPage = () => {
         />
       </div>
       <div className='characters-page__body'>
-        <TextInput
-          startIcon={SearchIcon}
-          value={name}
-          onChange={setName}
-        />
-        <TextInput
-          variant='underlined'
-          value={nameUnderlined}
-          onChange={setnameUnderlined}
-        />
-        <Select
-          options={SPECIES_OPTIONS}
-          placeholder='Species'
-          value={selectedSpecies}
-          onChange={setSelectedSpecies}
-        />
-        <Select
-          options={STATUS_OPTIONS}
-          value={selectedStatus}
-          onChange={setSelectedStatus}
-          size='small'
-          OptionComponent={({ option }) => {
-            return (
-              <>
-                <span>{option.label}</span>
-                <StatusOption statusColor={option.value} />
-              </>
-            );
-          }}
-        />
+        {mockCharacters.map((character) => {
+          return <CharacterCard {...character} />;
+        })}
       </div>
     </div>
   );

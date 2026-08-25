@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   src: url('../../shared/assets/fonts/Roboto-Regular.woff2') format(woff2);
   font-weight: 400;
   font-style: normal;
@@ -7,7 +7,7 @@
 }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: Roboto;
   src: url('../../shared/assets/fonts/Roboto-Medium.woff2') format(woff2);
   font-weight: 500;
   font-style: normal;
@@ -15,7 +15,7 @@
 }
 
 @font-face {
-  font-family: 'Karla';
+  font-family: Karla;
   src: url('../../shared/assets/fonts/Karla-Bold.woff2') format(woff2);
   font-weight: 700;
   font-style: normal;
@@ -26,7 +26,7 @@ html,
 body {
   height: 100%;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
   font-weight: 400;
 }
 

@@ -1,0 +1,112 @@
+.character-card {
+  width: 508px;
+  height: 248px;
+  display: flex;
+  gap: 13px;
+  border-radius: 6px;
+  background-color: #fff;
+  padding: 7px;
+  box-shadow: 1px 1px 4px #00000040;
+  position: relative;
+
+  &__image {
+    width: 240px;
+    height: 234px;
+    border-radius: 6px;
+  }
+
+  &__info {
+    width: 208px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__name {
+    font-size: 20px;
+    font-weight: 500;
+    transition: 0.2s all ease-in;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 10px;
+  }
+
+  &__reset {
+    background: transparent;
+    cursor: pointer;
+    width: 24px;
+    transition: 0.2s all ease-in;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__done {
+    width: 24px;
+    cursor: pointer;
+    background: transparent;
+    transition: 0.2s all ease-in;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__edit {
+    width: 24px;
+    cursor: pointer;
+    background: transparent;
+    transition: 0.2s all ease-in;
+    opacity: 0;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &:hover &__edit {
+    opacity: 1;
+  }
+
+  &__list {
+    display: grid;
+    gap: 6px;
+  }
+
+  &__item {
+    width: 115px;
+    height: 44px;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #3f3f3f;
+  }
+
+  &__option {
+    font-size: 14px;
+    color: #0009;
+  }
+
+  &__status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+}
