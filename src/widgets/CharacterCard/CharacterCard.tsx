@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import type { Status } from '@/shared/types';
+import type { CharacterPayload, Status } from '@/shared/types';
 import { STATUS_OPTIONS } from '@/shared/constants';
 import { Select, StatusOption, TextInput } from '@/shared/components';
 import { ResetIcon, DoneIcon, EditIcon, RickPhotoCard } from '@/shared/assets';
@@ -13,35 +13,35 @@ export interface CharacterCardProps {
   species: string;
   location: string;
   status: Status;
-  onUpdate?: (data: Partial<Omit<CharacterCardProps, 'onUpdate'>>) => void;
+  onUpdate?: (data: CharacterPayload) => void;
 }
 
 export const CharacterCard = ({
   id,
   name: initialName,
-  gender,
-  species,
   location: initialLocation,
   status: initialStatus,
+  gender,
+  species,
   onUpdate
 }: CharacterCardProps) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [selectedStatus, setSelectedStatus] = useState<Status>(initialStatus);
-  const [editName, setEditName] = useState(initialName);
   const [editLocation, setEditLocation] = useState(initialLocation);
+  const [editName, setEditName] = useState(initialName);
+  const [selectedStatus, setSelectedStatus] = useState(initialStatus);
 
   const currentStatus = STATUS_OPTIONS.find(
     (option) => option.value === selectedStatus
   );
 
-  const handleResetIcon = () => {
+  const handleResetClick = () => {
     setEditName(initialName);
     setEditLocation(initialLocation);
     setSelectedStatus(initialStatus);
     setIsEditing(false);
   };
 
-  const handleDoneIcon = () => {
+  const handleDoneClick = () => {
     onUpdate?.({
       name: editName,
       location: editLocation,
@@ -50,7 +50,7 @@ export const CharacterCard = ({
     setIsEditing(false);
   };
 
-  const handleEditIcon = () => {
+  const handleEditClick = () => {
     setIsEditing(true);
   };
 
@@ -76,43 +76,15 @@ export const CharacterCard = ({
             </Link>
           )}
         </div>
-        <div className='character-card__actions'>
-          {isEditing ? (
-            <>
-              <button
-                className='character-card__reset'
-                onClick={handleResetIcon}
-                aria-label='Reset changes'
-              >
-                <ResetIcon />
-              </button>
-              <button
-                className='character-card__done'
-                onClick={handleDoneIcon}
-                aria-label='Save changes'
-              >
-                <DoneIcon />
-              </button>
-            </>
-          ) : (
-            <button
-              className='character-card__edit'
-              onClick={handleEditIcon}
-              aria-label='Editing card'
-            >
-              <EditIcon />
-            </button>
-          )}
-        </div>
 
         <div className='character-card__list'>
           <div className='character-card__item'>
             <p className='character-card__title'>Gender</p>
-            <p className='character-card__option'>{gender}</p>
+            <span className='character-card__option'>{gender}</span>
           </div>
           <div className='character-card__item'>
             <p className='character-card__title'>Species</p>
-            <p className='character-card__option'>{species}</p>
+            <span className='character-card__option'>{species}</span>
           </div>
           <div className='character-card__item'>
             <p className='character-card__title'>Location</p>
@@ -121,10 +93,11 @@ export const CharacterCard = ({
                 id={`location-${id}`}
                 value={editLocation}
                 variant='underlined'
+                size='small'
                 onChange={(newLocation) => setEditLocation(newLocation)}
               />
             ) : (
-              <p className='character-card__option'>{editLocation}</p>
+              <span className='character-card__option'>{editLocation}</span>
             )}
           </div>
           <div className='character-card__item'>
@@ -154,6 +127,34 @@ export const CharacterCard = ({
             )}
           </div>
         </div>
+      </div>
+      <div className='character-card__actions'>
+        {isEditing ? (
+          <>
+            <button
+              className='character-card__reset'
+              onClick={handleResetClick}
+              aria-label='Reset changes'
+            >
+              <ResetIcon />
+            </button>
+            <button
+              className='character-card__done'
+              onClick={handleDoneClick}
+              aria-label='Save changes'
+            >
+              <DoneIcon />
+            </button>
+          </>
+        ) : (
+          <button
+            className='character-card__edit'
+            onClick={handleEditClick}
+            aria-label='Editing card'
+          >
+            <EditIcon />
+          </button>
+        )}
       </div>
     </div>
   );

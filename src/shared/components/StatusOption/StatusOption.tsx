@@ -1,5 +1,5 @@
-import type { Status } from '@/shared/types';
 import { STATUS_COLORS } from '@/shared/constants/status';
+import type { Status } from '@/shared/types/statusType';
 import './StatusOption.scss';
 
 export interface StatusOptionProps {

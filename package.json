@@ -9,6 +9,8 @@
     "lint": "eslint .",
     "lint:style": "stylelint \"**/*.{css,scss}\"",
     "lint:style:fix": "stylelint \"**/*.{css,scss}\" --fix",
+    "lint:ts": "eslint . --ext .ts,.tsx",
+    "lint:ts:fix": "eslint . --ext .ts,.tsx --fix",
     "preview": "vite preview"
   },
   "dependencies": {

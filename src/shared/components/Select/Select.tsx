@@ -16,7 +16,7 @@ type SelectSize = 'small' | 'medium';
 
 interface SelectProps<T> {
   options: Option<T>[];
-  value: T;
+  value: T | null;
   onChange: (value: T) => void;
   placeholder?: string;
   size?: SelectSize;

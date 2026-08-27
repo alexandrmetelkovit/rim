@@ -5,7 +5,7 @@
   padding: 16px;
   gap: 5px;
   border-radius: 8px;
-  border: 1px solid #00000080;
+  border: 1px solid #00000061;
 
   &_underlined {
     width: 178px;
@@ -14,6 +14,10 @@
     border-bottom: 1px solid #000;
     border-radius: 0;
     padding: 0;
+
+    &-small {
+      width: 115px;
+    }
   }
 
   &__icon {
@@ -29,7 +33,11 @@
     &_underlined {
       font-size: 20px;
       font-weight: 500;
-      line-height: 30px;
+
+      &-small {
+        width: 115px;
+        font-size: 14px;
+      }
     }
   }
 

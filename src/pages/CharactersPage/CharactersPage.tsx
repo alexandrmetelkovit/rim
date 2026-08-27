@@ -1,9 +1,7 @@
 import { BannerCharactersPage } from '@/shared/assets';
-import {
-  CharacterCard,
-  type CharacterCardProps
-} from '@/widgets/CharacterCard/CharacterCard';
+import { CharacterCard, type CharacterCardProps } from '@/widgets';
 import './CharactersPage.scss';
+import { FilterPanel } from '@/widgets/FilterPanel/FilterPanel';
 
 const mockCharacters: CharacterCardProps[] = [
   {
@@ -16,6 +14,22 @@ const mockCharacters: CharacterCardProps[] = [
   },
   {
     id: '2',
+    name: 'pitkin Sanchez',
+    gender: 'Male',
+    species: 'Human',
+    location: 'Earth',
+    status: 'dead'
+  },
+  {
+    id: '3',
+    name: 'pitkin Sanchez',
+    gender: 'Male',
+    species: 'Human',
+    location: 'Earth',
+    status: 'dead'
+  },
+  {
+    id: '4',
     name: 'pitkin Sanchez',
     gender: 'Male',
     species: 'Human',
@@ -36,8 +50,15 @@ export const CharactersPage = () => {
         />
       </div>
       <div className='characters-page__body'>
+        <FilterPanel />
+
         {mockCharacters.map((character) => {
-          return <CharacterCard {...character} />;
+          return (
+            <CharacterCard
+              key={character.id}
+              {...character}
+            />
+          );
         })}
       </div>
     </div>
