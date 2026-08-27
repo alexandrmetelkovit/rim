@@ -18,7 +18,7 @@
   }
 
   &__text {
-    font-family: 'Karla', sans-serif;
+    font-family: Karla, sans-serif;
     font-size: 18px;
     font-weight: 700;
   }
@@ -27,6 +27,7 @@
     from {
       transform: rotate(0deg);
     }
+
     to {
       transform: rotate(360deg);
     }

@@ -1,10 +1,8 @@
 .text-input {
   width: 240px;
   height: 56px;
-  border: 1px solid black;
   display: flex;
   padding: 16px;
-  align-items: center;
   gap: 5px;
   border-radius: 8px;
   border: 1px solid #00000080;
@@ -14,7 +12,7 @@
     height: 30px;
     border: none;
     border-bottom: 1px solid #000;
-    border-radius: 0px;
+    border-radius: 0;
     padding: 0;
   }
 
@@ -27,6 +25,12 @@
     width: 166px;
     font-size: 16px;
     font-weight: 400;
+
+    &_underlined {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 30px;
+    }
   }
 
   &__clear-button {

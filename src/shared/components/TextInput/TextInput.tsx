@@ -4,6 +4,7 @@ import { SearchClearIcon } from '@/shared/assets';
 import './TextInput.scss';
 
 interface TextInputProps {
+  id?: string;
   value: string;
   onChange: (value: string) => void;
   variant?: 'bordered' | 'underlined';
@@ -12,9 +13,10 @@ interface TextInputProps {
 }
 
 export const TextInput = ({
+  id,
   value,
   variant = 'bordered',
-  placeholder = 'Filter by name...',
+  placeholder,
   onChange,
   startIcon
 }: TextInputProps) => {
@@ -37,11 +39,15 @@ export const TextInput = ({
         />
       )}
       <input
+        id={id}
         type='text'
         value={value}
         placeholder={placeholder}
         onChange={handleChangeValue}
-        className='text-input__field'
+        className={classNames(
+          'text-input__field',
+          `text-input__field_${variant}`
+        )}
       />
 
       {value.length > 0 && StartIcon && (
