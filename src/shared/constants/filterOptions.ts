@@ -1,5 +1,5 @@
 import type { Option } from '../components';
-import type { Status } from '../types';
+import type { Status } from '../types/statusType';
 
 export const SPECIES_OPTIONS: Option<string>[] = [
   { label: 'Human', value: 'human' },

@@ -23,9 +23,9 @@
   }
 
   &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__name {
@@ -84,13 +84,15 @@
   }
 
   &__list {
-    display: grid;
-    gap: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   &__item {
-    width: 115px;
-    height: 44px;
+    width: 101px;
+    height: 41px;
+    line-height: 21px;
   }
 
   &__title {
@@ -100,8 +102,12 @@
   }
 
   &__option {
+    display: block;
     font-size: 14px;
     color: #0009;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__status {

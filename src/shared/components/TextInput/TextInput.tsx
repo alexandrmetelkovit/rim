@@ -8,17 +8,19 @@ interface TextInputProps {
   value: string;
   onChange: (value: string) => void;
   variant?: 'bordered' | 'underlined';
+  size?: 'small' | 'medium';
   placeholder?: string;
-  startIcon?: ComponentType<SVGProps<SVGSVGElement>>;
+  SearchIcon?: ComponentType<SVGProps<SVGSVGElement>>;
 }
 
 export const TextInput = ({
   id,
   value,
   variant = 'bordered',
+  size = 'medium',
   placeholder,
   onChange,
-  startIcon
+  SearchIcon
 }: TextInputProps) => {
   const handleChangeValue = (event: ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.value);
@@ -28,12 +30,16 @@ export const TextInput = ({
     onChange('');
   };
 
-  const StartIcon = startIcon;
-
   return (
-    <div className={classNames('text-input', `text-input_${variant}`)}>
-      {StartIcon && (
-        <StartIcon
+    <div
+      className={classNames(
+        'text-input',
+        `text-input_${variant}`,
+        `text-input_${variant}-${size}`
+      )}
+    >
+      {SearchIcon && (
+        <SearchIcon
           className='text-input__icon'
           aria-hidden='true'
         />
@@ -46,11 +52,12 @@ export const TextInput = ({
         onChange={handleChangeValue}
         className={classNames(
           'text-input__field',
-          `text-input__field_${variant}`
+          `text-input__field_${variant}`,
+          `text-input__field_${variant}-${size}`
         )}
       />
 
-      {value.length > 0 && StartIcon && (
+      {value.length > 0 && SearchIcon && (
         <button
           type='button'
           onClick={handleClearInput}

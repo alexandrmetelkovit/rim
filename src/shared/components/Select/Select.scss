@@ -3,6 +3,7 @@
   height: auto;
   position: relative;
   display: flex;
+  z-index: 1000;
 
   &_small {
     width: 94px;
@@ -16,9 +17,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    border: 1px solid #393939;
+    border: 1px solid #00000061;
     border-radius: 6px;
-    background: transparent;
+    background-color: #fff;
     transition: 0.2s all ease-in;
     cursor: pointer;
 
@@ -64,9 +65,10 @@
     width: 100%;
     position: absolute;
     top: calc(100% + 8px);
-    border: 1px solid #393939;
+    border: 1px solid #00000061;
     border-radius: 6px;
-    z-index: 10;
+    z-index: 1000;
+    background-color: #fff;
 
     &_small {
       top: calc(100% + 7px);
@@ -86,6 +88,9 @@
       font-size: 14px;
       padding: 5px;
       height: auto;
+      display: flex;
+      gap: 5px;
+      align-items: center;
     }
 
     &:hover {
