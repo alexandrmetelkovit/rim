@@ -10,7 +10,7 @@ interface TextInputProps {
   variant?: 'bordered' | 'underlined';
   size?: 'small' | 'medium';
   placeholder?: string;
-  SearchIcon?: ComponentType<SVGProps<SVGSVGElement>>;
+  LeftIcon?: ComponentType<SVGProps<SVGSVGElement>>;
 }
 
 export const TextInput = ({
@@ -20,7 +20,7 @@ export const TextInput = ({
   size = 'medium',
   placeholder,
   onChange,
-  SearchIcon
+  LeftIcon
 }: TextInputProps) => {
   const handleChangeValue = (event: ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.value);
@@ -35,11 +35,11 @@ export const TextInput = ({
       className={classNames(
         'text-input',
         `text-input_${variant}`,
-        `text-input_${variant}-${size}`
+        `text-input_${size}`
       )}
     >
-      {SearchIcon && (
-        <SearchIcon
+      {LeftIcon && (
+        <LeftIcon
           className='text-input__icon'
           aria-hidden='true'
         />
@@ -53,11 +53,11 @@ export const TextInput = ({
         className={classNames(
           'text-input__field',
           `text-input__field_${variant}`,
-          `text-input__field_${variant}-${size}`
+          `text-input__field_${size}`
         )}
       />
 
-      {value.length > 0 && SearchIcon && (
+      {value.length > 0 && LeftIcon && (
         <button
           type='button'
           onClick={handleClearInput}
