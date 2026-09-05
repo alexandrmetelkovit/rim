@@ -19,4 +19,20 @@
     flex-wrap: wrap;
     gap: 25px;
   }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  &_error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 25px;
+    font-weight: 500;
+  }
 }

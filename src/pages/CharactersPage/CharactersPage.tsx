@@ -1,44 +1,13 @@
+import { FilterPanel } from '@/widgets';
+import { CharacterCard } from '@/widgets';
+import { Loader } from '@/shared/components';
 import { BannerCharactersPage } from '@/shared/assets';
-import { CharacterCard, type CharacterCardProps } from '@/widgets';
+import { useCharacters } from '@/shared/hooks';
 import './CharactersPage.scss';
-import { FilterPanel } from '@/widgets/FilterPanel/FilterPanel';
-
-const mockCharacters: CharacterCardProps[] = [
-  {
-    id: '1',
-    name: 'Rick Sanchez',
-    gender: 'Male',
-    species: 'Human',
-    location: 'Earth',
-    status: 'alive'
-  },
-  {
-    id: '2',
-    name: 'pitkin Sanchez',
-    gender: 'Male',
-    species: 'Human',
-    location: 'Earth',
-    status: 'dead'
-  },
-  {
-    id: '3',
-    name: 'pitkin Sanchez',
-    gender: 'Male',
-    species: 'Human',
-    location: 'Earth',
-    status: 'dead'
-  },
-  {
-    id: '4',
-    name: 'pitkin Sanchez',
-    gender: 'Male',
-    species: 'Human',
-    location: 'Earth',
-    status: 'dead'
-  }
-];
 
 export const CharactersPage = () => {
+  const { characters, isLoading, isError } = useCharacters();
+
   return (
     <div className='characters-page container'>
       <div className='characters-page__banner'>
@@ -50,16 +19,25 @@ export const CharactersPage = () => {
         />
       </div>
       <div className='characters-page__body'>
-        <FilterPanel />
-
-        {mockCharacters.map((character) => {
-          return (
-            <CharacterCard
-              key={character.id}
-              {...character}
+        {isLoading && (
+          <>
+            <Loader
+              size='medium'
+              text='Loading characters...'
             />
-          );
-        })}
+          </>
+        )}
+        <FilterPanel />
+        {isError && (
+          <div className='characters-page_error'>List not loaded</div>
+        )}
+        <ol className='characters-page__list'>
+          {characters.map((character) => (
+            <li key={character.id}>
+              <CharacterCard {...character} />
+            </li>
+          ))}
+        </ol>
       </div>
     </div>
   );

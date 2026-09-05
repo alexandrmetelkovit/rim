@@ -7,7 +7,6 @@ import {
   SPECIES_OPTIONS,
   STATUS_OPTIONS
 } from '@/shared/constants';
-
 import './FilterPanel.scss';
 
 export const FilterPanel = () => {
@@ -22,7 +21,7 @@ export const FilterPanel = () => {
         id='filter-name'
         variant='bordered'
         placeholder='Filter by name...'
-        SearchIcon={SearchIcon}
+        LeftIcon={SearchIcon}
         value={nameInput}
         onChange={setNameInput}
       />
