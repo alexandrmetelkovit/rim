@@ -1,2 +1,1 @@
-export * from './statusType';
-export * from './characterType';
+export * from './character';

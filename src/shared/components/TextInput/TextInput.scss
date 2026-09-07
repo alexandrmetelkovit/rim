@@ -14,10 +14,10 @@
     border-bottom: 1px solid #000;
     border-radius: 0;
     padding: 0;
+  }
 
-    &-small {
-      width: 115px;
-    }
+  &_small {
+    max-width: 115px;
   }
 
   &__icon {
@@ -33,11 +33,11 @@
     &_underlined {
       font-size: 20px;
       font-weight: 500;
+    }
 
-      &-small {
-        width: 115px;
-        font-size: 14px;
-      }
+    &_small {
+      width: 100%;
+      font-size: 14px;
     }
   }
 

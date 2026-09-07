@@ -1,6 +1,5 @@
 import { LogoLightTheme, SunIcon } from '@/shared/assets';
 import { Button } from '@/shared/components/Button/Button';
-
 import './Header.scss';
 
 export const Header = () => {

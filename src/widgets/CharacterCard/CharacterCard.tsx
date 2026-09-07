@@ -1,18 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import type { CharacterPayload, Status } from '@/shared/types';
 import { STATUS_OPTIONS } from '@/shared/constants';
+import { DoneIcon, EditIcon, ResetIcon } from '@/shared/assets';
 import { Select, StatusOption, TextInput } from '@/shared/components';
-import { ResetIcon, DoneIcon, EditIcon, RickPhotoCard } from '@/shared/assets';
+import type { Character, CharacterPayload, Status } from '@/shared/types';
 import './CharacterCard.scss';
 
-export interface CharacterCardProps {
-  id: string | number;
-  name: string;
-  gender: string;
-  species: string;
-  location: string;
-  status: Status;
+export interface CharacterCardProps extends Character {
   onUpdate?: (data: CharacterPayload) => void;
 }
 
@@ -23,12 +17,13 @@ export const CharacterCard = ({
   status: initialStatus,
   gender,
   species,
+  image,
   onUpdate
 }: CharacterCardProps) => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [editLocation, setEditLocation] = useState(initialLocation);
   const [editName, setEditName] = useState(initialName);
-  const [selectedStatus, setSelectedStatus] = useState(initialStatus);
+  const [editLocation, setEditLocation] = useState(initialLocation.name);
+  const [selectedStatus, setSelectedStatus] = useState<Status>(initialStatus);
+  const [isEditing, setIsEditing] = useState(false);
 
   const currentStatus = STATUS_OPTIONS.find(
     (option) => option.value === selectedStatus
@@ -36,7 +31,7 @@ export const CharacterCard = ({
 
   const handleResetClick = () => {
     setEditName(initialName);
-    setEditLocation(initialLocation);
+    setEditLocation(initialLocation.name);
     setSelectedStatus(initialStatus);
     setIsEditing(false);
   };
@@ -58,7 +53,7 @@ export const CharacterCard = ({
     <div className='character-card'>
       <img
         className='character-card__image'
-        src={RickPhotoCard}
+        src={image}
         alt='photo character'
       />
       <div className='character-card__info'>
