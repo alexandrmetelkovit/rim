@@ -20,24 +20,25 @@ export const CharactersPage = () => {
       </div>
       <div className='characters-page__body'>
         {isLoading && (
-          <>
-            <Loader
-              size='medium'
-              text='Loading characters...'
-            />
-          </>
+          <Loader
+            size='medium'
+            text='Loading characters...'
+          />
         )}
         <FilterPanel />
-        {isError && (
-          <div className='characters-page_error'>List not loaded</div>
+        {isError ? (
+          <span className='characters-page__body-error'>
+            Character list is empty...🤷‍♂️
+          </span>
+        ) : (
+          <ol className='characters-page__list'>
+            {characters.map((character) => (
+              <li key={character.id}>
+                <CharacterCard {...character} />
+              </li>
+            ))}
+          </ol>
         )}
-        <ol className='characters-page__list'>
-          {characters.map((character) => (
-            <li key={character.id}>
-              <CharacterCard {...character} />
-            </li>
-          ))}
-        </ol>
       </div>
     </div>
   );
