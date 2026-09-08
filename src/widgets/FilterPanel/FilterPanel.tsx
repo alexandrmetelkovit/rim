@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import { SearchIcon } from '@/shared/assets';
-import type { Status } from '@/shared/types';
+import type { Filters } from '@/shared/types';
 import { Select, TextInput } from '@/shared/components';
 import {
   GENDER_OPTIONS,
@@ -9,12 +8,12 @@ import {
 } from '@/shared/constants';
 import './FilterPanel.scss';
 
-export const FilterPanel = () => {
-  const [nameInput, setNameInput] = useState('');
-  const [speciesSelect, setSpeciesSelect] = useState('');
-  const [genderSelect, setGenderSelect] = useState('');
-  const [statusSelect, setStatusSelect] = useState<Status | null>(null);
+export interface FilterPanelProps {
+  filters: Filters;
+  updateFilters: <K extends keyof Filters>(key: K, value: Filters[K]) => void;
+}
 
+export const FilterPanel = ({ filters, updateFilters }: FilterPanelProps) => {
   return (
     <div className='filter-panel'>
       <TextInput
@@ -22,26 +21,26 @@ export const FilterPanel = () => {
         variant='bordered'
         placeholder='Filter by name...'
         LeftIcon={SearchIcon}
-        value={nameInput}
-        onChange={setNameInput}
+        value={filters.name}
+        onChange={(value) => updateFilters('name', value)}
       />
       <Select
         options={SPECIES_OPTIONS}
         placeholder='Species'
-        value={speciesSelect}
-        onChange={setSpeciesSelect}
+        value={filters.species}
+        onChange={(value) => updateFilters('species', value)}
       />
       <Select
         options={GENDER_OPTIONS}
         placeholder='Gender'
-        value={genderSelect}
-        onChange={setGenderSelect}
+        value={filters.gender}
+        onChange={(value) => updateFilters('gender', value)}
       />
       <Select
         options={STATUS_OPTIONS}
         placeholder='Status'
-        value={statusSelect}
-        onChange={setStatusSelect}
+        value={filters.status}
+        onChange={(value) => updateFilters('status', value)}
       />
     </div>
   );

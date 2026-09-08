@@ -1,7 +1,6 @@
 .characters-page {
   padding: 26px 0 16px;
   margin: 0 auto;
-  position: relative;
 
   &__banner {
     width: 100%;
@@ -22,19 +21,5 @@
     justify-content: center;
     gap: 25px;
     position: relative;
-
-    &-error {
-      position: absolute;
-      top: 308px;
-      font-size: 25px;
-      font-weight: 500;
-    }
-  }
-
-  &__list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
   }
 }

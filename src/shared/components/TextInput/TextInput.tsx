@@ -47,6 +47,7 @@ export const TextInput = ({
       <input
         id={id}
         type='text'
+        autoComplete='off'
         value={value}
         placeholder={placeholder}
         onChange={handleChangeValue}
