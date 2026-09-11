@@ -1,0 +1,18 @@
+.characters-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 25px;
+
+  &_error,
+  &_empty {
+    font-size: 25px;
+    font-weight: 500;
+    position: absolute;
+    top: 304px;
+  }
+
+  &_error {
+    color: #d42929ff;
+  }
+}

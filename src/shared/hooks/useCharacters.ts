@@ -1,26 +1,54 @@
 import { useEffect, useState } from 'react';
-import toast from 'react-hot-toast';
-import type { Character } from '@/shared/types';
+import type { Character, Filters } from '@/shared/types';
 import { getCharacters } from '../api';
+import axios from 'axios';
 
-export const useCharacters = () => {
+export const useCharacters = (filters: Filters) => {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    getCharacters()
-      .then((data) => {
+    const controller = new AbortController();
+
+    const loadCharacters = async () => {
+      setIsLoading(true);
+      setIsError(false);
+      try {
+        const data = await getCharacters(filters, controller.signal);
         setCharacters(data.results);
         setIsLoading(false);
-      })
-      .catch((error: unknown) => {
-        console.log(error);
+      } catch (error) {
+        if (axios.isCancel(error)) {
+          console.log('Request canceled:', error.message);
+          setIsLoading(false);
+          return;
+        }
+
+        if (error instanceof Error && error.name === 'CanceledError') {
+          console.log('Request canceled (CanceledError)');
+          setIsLoading(false);
+          return;
+        }
+
+        if (error instanceof Error && error.name === 'AbortError') {
+          console.log('Request aborted');
+          setIsLoading(false);
+          return;
+        }
+
+        console.error(error);
         setIsError(true);
-        toast.error('Failed to load characters');
         setIsLoading(false);
-      });
-  }, []);
+      }
+    };
+
+    loadCharacters();
+
+    return () => {
+      controller.abort();
+    };
+  }, [filters]);
 
   return { characters, isLoading, isError };
 };
