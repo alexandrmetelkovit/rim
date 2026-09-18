@@ -1,4 +1,4 @@
-import { LoaderMedium } from '@/shared/assets';
+import { LoaderMedium, LoaderSmall } from '@/shared/assets';
 import './Loader.scss';
 
 type LoaderSize = 'small' | 'medium';
@@ -9,6 +9,8 @@ interface LoaderProps {
 }
 
 export const Loader = ({ size, text }: LoaderProps) => {
+  const imageSrc = size === 'small' ? LoaderSmall : LoaderMedium;
+
   return (
     <div
       className={`loader loader--${size}`}
@@ -17,7 +19,7 @@ export const Loader = ({ size, text }: LoaderProps) => {
     >
       <img
         className='loader__image'
-        src={LoaderMedium}
+        src={imageSrc}
         alt='Loading...'
         loading='lazy'
       />

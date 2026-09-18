@@ -1,4 +1,6 @@
+import { useEffect, useRef, useState } from 'react';
 import { SearchIcon } from '@/shared/assets';
+import { useDebounce } from '@/shared/hooks';
 import type { Filters } from '@/shared/types';
 import { Select, TextInput } from '@/shared/components';
 import {
@@ -14,6 +16,20 @@ export interface FilterPanelProps {
 }
 
 export const FilterPanel = ({ filters, updateFilters }: FilterPanelProps) => {
+  const [nameInput, setNameInput] = useState(filters.name);
+  const debouncedName = useDebounce(nameInput, 500);
+  const updateFiltersRef = useRef(updateFilters);
+
+  useEffect(() => {
+    updateFiltersRef.current = updateFilters;
+  }, [updateFilters]);
+
+  useEffect(() => {
+    if (debouncedName !== filters.name) {
+      updateFiltersRef.current('name', debouncedName);
+    }
+  }, [debouncedName, filters.name]);
+
   return (
     <div className='filter-panel'>
       <TextInput
@@ -21,8 +37,10 @@ export const FilterPanel = ({ filters, updateFilters }: FilterPanelProps) => {
         variant='bordered'
         placeholder='Filter by name...'
         LeftIcon={SearchIcon}
-        value={filters.name}
-        onChange={(value) => updateFilters('name', value)}
+        value={nameInput}
+        onChange={(value) => {
+          setNameInput(value);
+        }}
       />
       <Select
         options={SPECIES_OPTIONS}
