@@ -3,16 +3,24 @@ import { apiClient } from '../client';
 import type { Character, Filters } from '@/shared/types';
 import { normalizeStatus } from '@/shared/lib';
 
-export async function getCharacters(filters: Filters, signal?: AbortSignal) {
+export async function getCharacters(
+  filters: Filters,
+  page: number,
+  signal?: AbortSignal
+) {
   const params = new URLSearchParams();
 
   if (filters.name) params.append('name', filters.name);
   if (filters.species) params.append('species', filters.species);
   if (filters.gender) params.append('gender', filters.gender);
   if (filters.status) params.append('status', filters.status);
+  params.append('page', String(page));
 
   try {
-    const response = await apiClient.get('/character', { params, signal });
+    const response = await apiClient.get('/character', {
+      params,
+      signal
+    });
     const normalizedResults = response.data.results.map(
       (character: Character) => ({
         ...character,

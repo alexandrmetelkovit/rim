@@ -14,7 +14,9 @@ export const CharactersPage = () => {
     species: '',
     status: null
   });
-  const { characters, isLoading, isError } = useCharacters(filters);
+
+  const { characters, isLoading, isError, loadMore, hasMore, isLoadingMore } =
+    useCharacters(filters);
 
   useEffect(() => {
     if (isError) {
@@ -46,6 +48,9 @@ export const CharactersPage = () => {
             characters={characters}
             isLoading={isLoading}
             isError={isError}
+            loadMore={loadMore}
+            hasMore={hasMore}
+            isLoadingMore={isLoadingMore}
           />
         </ErrorBoundary>
       </div>
