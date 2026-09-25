@@ -8,12 +8,14 @@ export interface Character {
   status: Status;
   species: string;
   gender: string;
-  location: { name: string };
   image: string;
+  location: { name: string };
+  origin: { name: string };
+  type: string;
 }
 
 export interface CharacterPayload {
   name: string;
-  location: string;
+  location: { name: string };
   status: Status;
 }

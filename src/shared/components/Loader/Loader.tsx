@@ -15,7 +15,7 @@ export const Loader = ({ size, text }: LoaderProps) => {
     <div
       className={`loader loader--${size}`}
       role='status'
-      aria-label='loading...'
+      aria-label={text || 'Loading...'}
     >
       <img
         className='loader__image'

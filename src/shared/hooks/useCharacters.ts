@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import type { Character, Filters } from '@/shared/types';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import type { Character, CharacterPayload, Filters } from '@/shared/types';
 import { getCharacters } from '../api';
 import axios from 'axios';
 
@@ -20,6 +20,17 @@ export const useCharacters = (filters: Filters) => {
 
     setPage((prev) => prev + 1);
   };
+
+  const updateCharacter = useCallback(
+    (id: number, data: Partial<CharacterPayload>) => {
+      setCharacters((prev) =>
+        prev.map((character) =>
+          character.id === id ? { ...character, ...data } : character
+        )
+      );
+    },
+    []
+  );
 
   useEffect(() => {
     const filtersChanged =
@@ -92,5 +103,13 @@ export const useCharacters = (filters: Filters) => {
     return () => controller.abort();
   }, [filters, page]);
 
-  return { characters, isLoading, isError, loadMore, hasMore, isLoadingMore };
+  return {
+    characters,
+    isLoading,
+    isError,
+    loadMore,
+    hasMore,
+    isLoadingMore,
+    updateCharacter
+  };
 };

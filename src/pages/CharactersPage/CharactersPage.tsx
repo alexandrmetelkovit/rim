@@ -1,13 +1,14 @@
-import { useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { FilterPanel } from '@/widgets';
 import { CharactersList } from '@/widgets';
 import { useCharacters } from '@/shared/hooks';
+import type { Filters } from '@/shared/types';
 import { BannerCharactersPage } from '@/shared/assets';
 import { ErrorBoundary, ErrorFallback } from '@/shared/components';
 import './CharactersPage.scss';
 
-export const CharactersPage = () => {
+export const CharactersPage = memo(() => {
   const [filters, setFilters] = useState({
     name: '',
     gender: '',
@@ -15,8 +16,22 @@ export const CharactersPage = () => {
     status: null
   });
 
-  const { characters, isLoading, isError, loadMore, hasMore, isLoadingMore } =
-    useCharacters(filters);
+  const {
+    characters,
+    isLoading,
+    isError,
+    loadMore,
+    hasMore,
+    isLoadingMore,
+    updateCharacter
+  } = useCharacters(filters);
+
+  const updateFilters = useCallback(
+    <K extends keyof Filters>(key: K, value: Filters[K]) => {
+      setFilters((prev) => ({ ...prev, [key]: value }));
+    },
+    []
+  );
 
   useEffect(() => {
     if (isError) {
@@ -37,9 +52,7 @@ export const CharactersPage = () => {
       <div className='characters-page__body'>
         <FilterPanel
           filters={filters}
-          updateFilters={(key, value) =>
-            setFilters({ ...filters, [key]: value })
-          }
+          updateFilters={updateFilters}
         />
         <ErrorBoundary
           fallback={<ErrorFallback message='Failed to load characters list' />}
@@ -51,9 +64,12 @@ export const CharactersPage = () => {
             loadMore={loadMore}
             hasMore={hasMore}
             isLoadingMore={isLoadingMore}
+            updateCharacter={updateCharacter}
           />
         </ErrorBoundary>
       </div>
     </div>
   );
-};
+});
+
+CharactersPage.displayName = 'CharactersPage';
