@@ -1,5 +1,5 @@
 import type { ChangeEvent, ComponentType, SVGProps } from 'react';
-import { classNames } from '@/shared/helpers';
+import { classNames } from '@/shared/lib';
 import { SearchClearIcon } from '@/shared/assets';
 import './TextInput.scss';
 

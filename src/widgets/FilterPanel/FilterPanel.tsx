@@ -2,7 +2,7 @@ import { memo, useEffect, useRef, useState } from 'react';
 import { SearchIcon } from '@/shared/assets';
 import { useDebounce } from '@/shared/hooks';
 import type { Filters } from '@/shared/types';
-import { Select, TextInput } from '@/shared/components';
+import { Select, TextInput } from '@/shared/ui';
 import {
   GENDER_OPTIONS,
   SPECIES_OPTIONS,

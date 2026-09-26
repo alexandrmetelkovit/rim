@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import type { Character } from '../types';
-import { getCharacterById } from '../api/endpoints/getCharacterById';
 import axios from 'axios';
+import toast from 'react-hot-toast';
+import { getCharacterById, type Character } from '@/entities/character';
+import { normalizeStatus } from '../lib';
 
 export const useCharacter = (id: number) => {
   const [character, setCharacter] = useState<Character | null>(null);
@@ -20,16 +21,30 @@ export const useCharacter = (id: number) => {
       try {
         const data = await getCharacterById(id, controller.signal);
 
+        const normalizedCharacter: Character = {
+          ...data,
+          status: normalizeStatus(data.status)
+        };
+
         await new Promise((resolve) => setTimeout(resolve, 700));
 
         if (controller.signal.aborted) return;
 
-        setCharacter(data);
+        setCharacter(normalizedCharacter);
         setIsLoading(false);
       } catch (error) {
         if (axios.isCancel(error)) {
           return;
         }
+
+        if (axios.isAxiosError(error) && error.response?.status === 404) {
+          setIsError(true);
+          setIsLoading(false);
+          return;
+        }
+
+        toast.error('Failed to load character. Please try again.');
+
         setIsLoading(false);
         setIsError(true);
       }

@@ -1,5 +1,4 @@
-// import { STATUS_OPTIONS } from '@/shared/constants';
-import type { Status } from '@/shared/types';
+import type { Status } from '@/entities/character';
 
 export const normalizeStatus = (status: string): Status => {
   const normalized = status.toLowerCase();
@@ -9,9 +8,4 @@ export const normalizeStatus = (status: string): Status => {
     normalized === 'unknown'
     ? normalized
     : 'unknown';
-
-  // return (
-  //   STATUS_OPTIONS.find((option) => option.value === status.toLowerCase())
-  //     ?.value ?? 'unknown'
-  // );
 };

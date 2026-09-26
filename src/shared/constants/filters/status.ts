@@ -1,5 +1,5 @@
-import type { Status } from '../types';
-import type { Option } from '../components';
+import type { Status } from '@/entities/character';
+import type { Option } from '../../ui';
 
 export const STATUS_COLORS = {
   alive: 'green',

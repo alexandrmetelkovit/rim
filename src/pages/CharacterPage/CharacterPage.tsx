@@ -1,11 +1,10 @@
-import { memo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useCharacter } from '@/shared/hooks';
 import { STATUS_OPTIONS } from '@/shared/constants';
-import { ButtonBack, Loader } from '@/shared/components';
+import { ButtonBack, Loader } from '@/shared/ui';
 import './CharacterPage.scss';
 
-export const CharacterPage = memo(() => {
+export const CharacterPage = () => {
   const { id } = useParams<{ id: string }>();
   const characterId = Number(id);
   const { isLoading, isError, character } = useCharacter(characterId);
@@ -114,6 +113,4 @@ export const CharacterPage = memo(() => {
       </div>
     </div>
   );
-});
-
-CharacterPage.displayName = 'CharacterPage';
+};
