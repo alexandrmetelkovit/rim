@@ -1,4 +1,4 @@
-import type { Option } from '../components';
+import type { Option } from '../../ui';
 
 export const GENDER_OPTIONS: Option<string>[] = [
   { label: 'Female', value: 'female' },

@@ -1,8 +1,8 @@
+import { Loader } from '@/shared/ui';
 import { CharacterCard } from '@/widgets';
-import { Loader } from '@/shared/components';
-import type { Character } from '@/shared/types';
-import './CharactersList.scss';
 import { useInfiniteScroll } from '@/shared/hooks';
+import type { Character, CharacterPayload } from '@/entities/character';
+import './CharactersList.scss';
 
 interface CharactersListProps {
   characters: Character[];
@@ -11,6 +11,7 @@ interface CharactersListProps {
   loadMore: () => void;
   hasMore: boolean;
   isLoadingMore: boolean;
+  updateCharacter: (id: number, data: Partial<CharacterPayload>) => void;
 }
 
 export const CharactersList = ({
@@ -19,12 +20,13 @@ export const CharactersList = ({
   isError,
   loadMore,
   hasMore,
-  isLoadingMore
+  isLoadingMore,
+  updateCharacter
 }: CharactersListProps) => {
   const { triggerRef } = useInfiniteScroll(loadMore);
   const isEmpty = characters.length === 0;
 
-  if (isLoading && isEmpty) {
+  if (isLoading) {
     return (
       <Loader
         size='medium'
@@ -54,7 +56,10 @@ export const CharactersList = ({
       <ol className='characters-list'>
         {characters.map((character) => (
           <li key={character.id}>
-            <CharacterCard {...character} />
+            <CharacterCard
+              {...character}
+              updateCharacter={updateCharacter}
+            />
           </li>
         ))}
       </ol>

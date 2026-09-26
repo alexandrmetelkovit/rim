@@ -7,13 +7,13 @@ export interface Character {
   name: string;
   status: Status;
   species: string;
+  type: string;
   gender: string;
+  origin: { name: string };
   location: { name: string };
   image: string;
 }
 
-export interface CharacterPayload {
-  name: string;
-  location: string;
-  status: Status;
+export interface ApiCharacter extends Omit<Character, 'status'> {
+  status: string;
 }

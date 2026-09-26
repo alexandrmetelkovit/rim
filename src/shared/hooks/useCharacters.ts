@@ -1,7 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
-import type { Character, Filters } from '@/shared/types';
-import { getCharacters } from '../api';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import axios from 'axios';
+import toast from 'react-hot-toast';
+import {
+  getCharacters,
+  type Character,
+  type CharacterPayload
+} from '@/entities/character';
+import { normalizeStatus } from '../lib';
+import type { Filters } from '../types';
 
 export const useCharacters = (filters: Filters) => {
   const [characters, setCharacters] = useState<Character[]>([]);
@@ -20,6 +26,17 @@ export const useCharacters = (filters: Filters) => {
 
     setPage((prev) => prev + 1);
   };
+
+  const updateCharacter = useCallback(
+    (id: number, data: Partial<CharacterPayload>) => {
+      setCharacters((prev) =>
+        prev.map((character) =>
+          character.id === id ? { ...character, ...data } : character
+        )
+      );
+    },
+    []
+  );
 
   useEffect(() => {
     const filtersChanged =
@@ -44,10 +61,21 @@ export const useCharacters = (filters: Filters) => {
       setIsError(false);
 
       try {
-        const data = await getCharacters(
-          filters,
-          currentPage,
-          controller.signal
+        const params: Record<string, string> = {
+          ...(filters.name && { name: filters.name }),
+          ...(filters.species && { species: filters.species }),
+          ...(filters.gender && { gender: filters.gender }),
+          ...(filters.status && { status: filters.status }),
+          page: String(page)
+        };
+
+        const data = await getCharacters(params, controller.signal);
+
+        const normalizedResults: Character[] = data.results.map(
+          (character) => ({
+            ...character,
+            status: normalizeStatus(character.status)
+          })
         );
 
         await new Promise((resolve) => setTimeout(resolve, 700));
@@ -55,29 +83,35 @@ export const useCharacters = (filters: Filters) => {
         if (controller.signal.aborted) return;
 
         if (currentPage === 1) {
-          setCharacters(data.results);
+          setCharacters(normalizedResults);
         } else {
-          setCharacters((prev) => [...prev, ...data.results]);
+          setCharacters((prev) => [...prev, ...normalizedResults]);
         }
 
         setHasMore(data.info.next !== null);
       } catch (error) {
         if (axios.isCancel(error)) {
-          console.error('Request canceled:', error.message);
           return;
         }
 
         if (error instanceof Error && error.name === 'CanceledError') {
-          console.error('Request canceled (CanceledError)');
           return;
         }
 
         if (error instanceof Error && error.name === 'AbortError') {
-          console.error('Request aborted');
           return;
         }
 
-        console.error(error);
+        if (axios.isAxiosError(error) && error.response?.status === 404) {
+          setCharacters([]);
+          setHasMore(false);
+          return;
+        }
+
+        toast.error('Failed to load characters. Please try again.', {
+          id: 'characters-error'
+        });
+
         setIsError(true);
       } finally {
         if (!controller.signal.aborted) {
@@ -92,5 +126,13 @@ export const useCharacters = (filters: Filters) => {
     return () => controller.abort();
   }, [filters, page]);
 
-  return { characters, isLoading, isError, loadMore, hasMore, isLoadingMore };
+  return {
+    characters,
+    isLoading,
+    isError,
+    loadMore,
+    hasMore,
+    isLoadingMore,
+    updateCharacter
+  };
 };

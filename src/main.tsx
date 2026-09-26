@@ -1,9 +1,9 @@
 import { StrictMode } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
-import { router } from './router';
-import { ErrorBoundary, ErrorFallback } from '@/shared/components';
-import './styles';
+import { ErrorBoundary, ErrorFallback } from '@/shared/ui';
+import { router } from './app/router';
+import './app/styles';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

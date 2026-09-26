@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { ErrorFallback } from '@/shared/components';
+import { ErrorFallback } from '@/shared/ui';
 import { CharacterPage, CharactersPage } from '@/pages';
 import { App } from '../App';
 

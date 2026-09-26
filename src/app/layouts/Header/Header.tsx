@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
 import { LogoLightTheme, SunIcon } from '@/shared/assets';
-import { Button } from '@/shared/components/Button/Button';
+import { Button } from '@/shared/ui/buttons/Button/Button';
 import './Header.scss';
 
 export const Header = () => {
@@ -7,7 +8,9 @@ export const Header = () => {
     <header className='header'>
       <div className='header__info container'>
         <div className='header__logo'>
-          <LogoLightTheme />
+          <Link to={'/'}>
+            <LogoLightTheme />
+          </Link>
         </div>
         <div className='header__actions'>
           <Button icon={<SunIcon />} />
