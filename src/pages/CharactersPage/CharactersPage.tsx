@@ -1,8 +1,7 @@
 import { FilterPanel } from '@/widgets';
-import { useFilters } from '@/features';
 import { CharactersList } from '@/widgets';
-import { useCharacters } from '@/shared/hooks';
 import { BannerCharactersPage } from '@/shared/assets';
+import { useCharacters, useFilters } from '@/shared/hooks';
 import { ErrorBoundary, ErrorFallback } from '@/shared/ui';
 import './CharactersPage.scss';
 

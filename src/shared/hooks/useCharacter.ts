@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { getCharacterById, type Character } from '@/entities/character';
 import { normalizeStatus } from '../lib';
+import { getCharacterById } from '../api';
+import type { Character } from '../types';
 
 export const useCharacter = (id: number) => {
   const [character, setCharacter] = useState<Character | null>(null);
@@ -19,7 +20,8 @@ export const useCharacter = (id: number) => {
       setIsError(false);
 
       try {
-        const data = await getCharacterById(id, controller.signal);
+        const response = await getCharacterById(id, controller.signal);
+        const data = response.data;
 
         const normalizedCharacter: Character = {
           ...data,

@@ -1,13 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import {
-  getCharacters,
-  type Character,
-  type CharacterPayload
-} from '@/entities/character';
+import { getCharacters } from '../api';
 import { normalizeStatus } from '../lib';
-import type { Filters } from '../types';
+import type { Character, CharacterPayload, Filters } from '../types';
 
 export const useCharacters = (filters: Filters) => {
   const [characters, setCharacters] = useState<Character[]>([]);
@@ -69,7 +65,8 @@ export const useCharacters = (filters: Filters) => {
           page: String(page)
         };
 
-        const data = await getCharacters(params, controller.signal);
+        const response = await getCharacters(params, controller.signal);
+        const data = response.data;
 
         const normalizedResults: Character[] = data.results.map(
           (character) => ({

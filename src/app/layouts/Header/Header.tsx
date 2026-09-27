@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { LogoLightTheme, SunIcon } from '@/shared/assets';
-import { Button } from '@/shared/ui/buttons/Button/Button';
+import { Button } from '@/shared/ui';
 import './Header.scss';
 
 export const Header = () => {

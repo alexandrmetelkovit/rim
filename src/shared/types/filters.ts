@@ -1,4 +1,4 @@
-import type { Status } from '../../entities/character/model/character';
+import type { Status } from './character';
 
 export interface Filters {
   name: string;

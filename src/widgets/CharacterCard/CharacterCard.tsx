@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { STATUS_OPTIONS } from '@/shared/constants';
 import { Select, StatusOption, TextInput } from '@/shared/ui';
 import { DoneIcon, EditIcon, ResetIcon } from '@/shared/assets';
-import type { Character, CharacterPayload, Status } from '@/entities/character';
+import type { Character, CharacterPayload, Status } from '@/shared/types';
 import './CharacterCard.scss';
 
 export interface CharacterCardProps extends Character {
@@ -118,6 +118,7 @@ export const CharacterCard = memo(
                 />
               ) : (
                 <div className='character-card__status'>
+                  d
                   <span className='character-card__option'>
                     {currentStatus?.label}
                   </span>

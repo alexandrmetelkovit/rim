@@ -1,4 +1,4 @@
-import type { Status } from '@/entities/character';
+import type { Status } from '@/shared/types';
 import type { Option } from '../../ui';
 
 export const STATUS_COLORS = {

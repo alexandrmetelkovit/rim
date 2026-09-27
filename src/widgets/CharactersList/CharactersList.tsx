@@ -1,7 +1,7 @@
 import { Loader } from '@/shared/ui';
 import { CharacterCard } from '@/widgets';
 import { useInfiniteScroll } from '@/shared/hooks';
-import type { Character, CharacterPayload } from '@/entities/character';
+import type { Character, CharacterPayload } from '@/shared/types';
 import './CharactersList.scss';
 
 interface CharactersListProps {
