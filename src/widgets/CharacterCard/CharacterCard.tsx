@@ -118,7 +118,6 @@ export const CharacterCard = memo(
                 />
               ) : (
                 <div className='character-card__status'>
-                  d
                   <span className='character-card__option'>
                     {currentStatus?.label}
                   </span>

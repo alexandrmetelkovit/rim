@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { useCharacter } from '@/shared/hooks';
 import { STATUS_OPTIONS } from '@/shared/constants';
 import { ButtonBack, Loader } from '@/shared/ui';
@@ -7,7 +7,8 @@ import './CharacterPage.scss';
 export const CharacterPage = () => {
   const { id } = useParams<{ id: string }>();
   const characterId = Number(id);
-  const { isLoading, isError, character } = useCharacter(characterId);
+  const { isLoading, isError, character, isNotFound } =
+    useCharacter(characterId);
 
   if (isLoading) {
     return (
@@ -17,6 +18,15 @@ export const CharacterPage = () => {
           text='Loading character card...'
         />
       </div>
+    );
+  }
+
+  if (isNotFound) {
+    return (
+      <Navigate
+        to='/404'
+        replace
+      />
     );
   }
 

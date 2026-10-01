@@ -37,7 +37,10 @@ export const CharactersList = ({
 
   if (isError) {
     return (
-      <span className='characters-list__error'>
+      <span
+        className='characters-list__error'
+        role='alert'
+      >
         ⚠️ Server error. Please try again later.
       </span>
     );
