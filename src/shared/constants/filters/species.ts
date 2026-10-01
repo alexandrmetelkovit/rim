@@ -1,4 +1,4 @@
-import type { Option } from '../components';
+import type { Option } from '../../ui';
 
 export const SPECIES_OPTIONS: Option<string>[] = [
   { label: 'Human', value: 'human' },

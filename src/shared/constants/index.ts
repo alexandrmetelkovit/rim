@@ -1,3 +1,3 @@
-export * from './status';
-export * from './gender';
-export * from './species';
+export * from './filters/gender';
+export * from './filters/species';
+export * from './filters/status';

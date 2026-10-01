@@ -1,5 +1,5 @@
-export * from './ButtonBack/ButtonBack';
-export * from './Button/Button';
+export * from './buttons/ButtonBack/ButtonBack';
+export * from './buttons/Button/Button';
 export * from './Loader/Loader';
 export * from './Select/Select';
 export * from './StatusOption/StatusOption';

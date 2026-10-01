@@ -1,5 +1,6 @@
 import { Toaster } from 'react-hot-toast';
-import { Footer, Header } from '@/widgets';
+import { Header } from '../Header/Header';
+import { Footer } from '../Footer/Footer';
 import './Layout.scss';
 
 interface LayoutProps {
