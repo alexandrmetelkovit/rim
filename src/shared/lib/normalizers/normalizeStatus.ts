@@ -1,4 +1,4 @@
-import type { Status } from '@/entities/character';
+import type { Status } from '@/shared/types';
 
 export const normalizeStatus = (status: string): Status => {
   const normalized = status.toLowerCase();
