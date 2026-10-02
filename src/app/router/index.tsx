@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { ErrorFallback } from '@/shared/ui';
-import { CharacterPage, CharactersPage } from '@/pages';
+import { CharacterPage, CharactersPage, NotFoundPage } from '@/pages';
 import { App } from '../App';
 
 export const router = createBrowserRouter([
@@ -16,6 +16,10 @@ export const router = createBrowserRouter([
       {
         path: '/character/:id',
         element: <CharacterPage />
+      },
+      {
+        path: '*',
+        element: <NotFoundPage />
       }
     ]
   }

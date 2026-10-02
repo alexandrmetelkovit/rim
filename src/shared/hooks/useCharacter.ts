@@ -9,15 +9,20 @@ export const useCharacter = (id: number) => {
   const [character, setCharacter] = useState<Character | null>(null);
   const [isLoading, setIsLoading] = useState(!!id && !isNaN(id));
   const [isError, setIsError] = useState(false);
+  const [isNotFoundFromApi, setIsNotFoundFromApi] = useState(false);
+
+  const isInvalidId = !id || isNaN(id);
+  const isNotFound = isInvalidId || isNotFoundFromApi;
 
   useEffect(() => {
-    if (!id || isNaN(id)) return;
+    if (isInvalidId) return;
 
     const controller = new AbortController();
 
     const loadCharacter = async () => {
       setIsLoading(true);
       setIsError(false);
+      setIsNotFoundFromApi(false);
 
       try {
         const response = await getCharacterById(id, controller.signal);
@@ -40,13 +45,12 @@ export const useCharacter = (id: number) => {
         }
 
         if (axios.isAxiosError(error) && error.response?.status === 404) {
-          setIsError(true);
+          setIsNotFoundFromApi(true);
           setIsLoading(false);
           return;
         }
 
         toast.error('Failed to load character. Please try again.');
-
         setIsLoading(false);
         setIsError(true);
       }
@@ -54,7 +58,7 @@ export const useCharacter = (id: number) => {
 
     loadCharacter();
     return () => controller.abort();
-  }, [id]);
+  }, [id, isInvalidId]);
 
-  return { character, isLoading, isError };
+  return { character, isLoading, isError, isNotFound };
 };
