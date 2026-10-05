@@ -7,10 +7,10 @@ import SearchClearIcon from './icons/search-clear-icon.svg?react';
 import EditIcon from './icons/edit-icon.svg?react';
 import ResetIcon from './icons/reset-icon.svg?react';
 import DoneIcon from './icons/done-icon.svg?react';
-import BannerCharactersPage from './images/layout-image/banner.png';
-import LoaderMedium from './images/loaders-image/loader_medium.png';
-import LoaderSmall from './images/loaders-image/loader_small.png';
-import NotFoundPageImage from './images/not-found-page-image/not-found-page.png';
+import BannerCharactersPage from './images/layout-image/banner.webp';
+import LoaderMedium from './images/loaders-image/loader_medium.webp';
+import LoaderSmall from './images/loaders-image/loader_small.webp';
+import NotFoundPageImage from './images/layout-image/not-found.webp';
 
 export {
   LogoLightTheme,

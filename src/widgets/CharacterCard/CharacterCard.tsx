@@ -56,6 +56,7 @@ export const CharacterCard = memo(
           className='character-card__image'
           src={image}
           alt='photo character'
+          loading='lazy'
         />
         <div className='character-card__info'>
           <div className='character-card__header'>

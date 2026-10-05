@@ -22,4 +22,9 @@
     gap: 25px;
     position: relative;
   }
+
+  &__list_pending {
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+  }
 }
