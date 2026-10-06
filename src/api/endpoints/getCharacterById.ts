@@ -1,5 +1,5 @@
 import type { AxiosResponse } from 'axios';
-import { apiClient } from '@/shared/api';
+import { apiClient } from '@/api';
 import type { ApiCharacter } from '@/shared/types';
 
 export const getCharacterById = async (

@@ -2,7 +2,7 @@ import { memo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { STATUS_OPTIONS } from '@/shared/constants';
 import { Select, StatusOption, TextInput } from '@/shared/ui';
-import { DoneIcon, EditIcon, ResetIcon } from '@/shared/assets';
+import { DoneIcon, EditIcon, ResetIcon } from '@/assets';
 import type { Character, CharacterPayload, Status } from '@/shared/types';
 import './CharacterCard.scss';
 

@@ -1,15 +1,16 @@
-import { useTransition } from 'react';
-import { FilterPanel } from '@/widgets';
-import { CharactersList } from '@/widgets';
-import { BannerCharactersPage } from '@/shared/assets';
-import { useCharacters, useFilters } from '@/shared/hooks';
+import { useCallback, useTransition } from 'react';
+import { classNames } from '@/shared/lib';
+import { useFiltersStore } from '@/stores';
+import type { Filters } from '@/shared/types';
+import { useCharacters } from '@/shared/hooks';
+import { BannerCharactersPage } from '@/assets';
+import { CharactersList, FilterPanel } from '@/widgets';
 import { ErrorBoundary, ErrorFallback } from '@/shared/ui';
 import './CharactersPage.scss';
-import type { Filters } from '@/shared/types';
-import { classNames } from '@/shared/lib';
 
 export const CharactersPage = () => {
-  const { filters, updateFilters } = useFilters();
+  const filters = useFiltersStore((state) => state.filters);
+  const setFilter = useFiltersStore((state) => state.setFilter);
   const [isPending, startTransition] = useTransition();
   const {
     characters,
@@ -21,14 +22,14 @@ export const CharactersPage = () => {
     updateCharacter
   } = useCharacters(filters);
 
-  const handleFilterChange = <K extends keyof Filters>(
-    key: K,
-    value: Filters[K]
-  ) => {
-    startTransition(() => {
-      updateFilters(key, value);
-    });
-  };
+  const handleFilterChange = useCallback(
+    <K extends keyof Filters>(key: K, value: Filters[K]) => {
+      startTransition(() => {
+        setFilter(key, value);
+      });
+    },
+    [setFilter]
+  );
 
   return (
     <div className='characters-page container'>
@@ -43,7 +44,6 @@ export const CharactersPage = () => {
       <div className='characters-page__body'>
         <FilterPanel
           filters={filters}
-          // updateFilters={updateFilters}
           updateFilters={handleFilterChange}
         />
         <ErrorBoundary

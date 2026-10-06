@@ -1,6 +1,6 @@
 import { memo, useEffect, useRef, useState } from 'react';
-import { SearchIcon } from '@/shared/assets';
-// import { useDebounce } from '@/shared/hooks';
+import { SearchIcon } from '@/assets';
+import { useDebounce } from '@/shared/hooks';
 import type { Filters } from '@/shared/types';
 import { Select, TextInput } from '@/shared/ui';
 import {
@@ -18,24 +18,18 @@ export interface FilterPanelProps {
 export const FilterPanel = memo(
   ({ filters, updateFilters }: FilterPanelProps) => {
     const [nameInput, setNameInput] = useState(filters.name);
-    // const debouncedName = useDebounce(nameInput, 500);
+    const debouncedName = useDebounce(nameInput, 500);
     const updateFiltersRef = useRef(updateFilters);
 
     useEffect(() => {
       updateFiltersRef.current = updateFilters;
     }, [updateFilters]);
 
-    // useEffect(() => {
-    //   if (debouncedName !== filters.name) {
-    //     updateFiltersRef.current('name', debouncedName);
-    //   }
-    // }, [debouncedName, filters.name]);
-
     useEffect(() => {
-      if (nameInput !== filters.name) {
-        updateFiltersRef.current('name', nameInput);
+      if (debouncedName !== filters.name) {
+        updateFiltersRef.current('name', debouncedName);
       }
-    }, [nameInput, filters.name]);
+    }, [debouncedName, filters.name]);
 
     return (
       <div className='filter-panel'>

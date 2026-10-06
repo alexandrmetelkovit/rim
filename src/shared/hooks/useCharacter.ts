@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { getCharacterById } from '@/api';
 import { normalizeStatus } from '../lib';
-import { getCharacterById } from '../api';
 import type { Character } from '../types';
 
 export const useCharacter = (id: number) => {
