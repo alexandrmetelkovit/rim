@@ -1,4 +1,4 @@
-import { LoaderMedium, LoaderSmall } from '@/shared/assets';
+import { LoaderMedium, LoaderSmall } from '@/assets';
 import './Loader.scss';
 
 type LoaderSize = 'small' | 'medium';

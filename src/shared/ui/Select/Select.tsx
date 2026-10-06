@@ -1,6 +1,6 @@
 import { type ComponentType, useEffect, useRef, useState } from 'react';
 import { classNames } from '@/shared/lib';
-import { ArrowDown } from '@/shared/assets';
+import { ArrowDown } from '@/assets';
 import './Select.scss';
 
 export interface Option<T> {
