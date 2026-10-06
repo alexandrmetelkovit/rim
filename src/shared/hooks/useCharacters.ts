@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { getCharacters } from '../api';
 import { normalizeStatus } from '../lib';
 import type { Character, CharacterPayload, Filters } from '../types';
+import { MIN_LOADING_TIME } from '../constants';
 
 export const useCharacters = (filters: Filters) => {
   const [characters, setCharacters] = useState<Character[]>([]);
@@ -56,6 +57,9 @@ export const useCharacters = (filters: Filters) => {
       }
       setIsError(false);
 
+      const startTime = Date.now();
+      const minLoadingTime = currentPage === 1 ? MIN_LOADING_TIME : 0;
+
       try {
         const params: Record<string, string> = {
           ...(filters.name && { name: filters.name }),
@@ -75,7 +79,12 @@ export const useCharacters = (filters: Filters) => {
           })
         );
 
-        await new Promise((resolve) => setTimeout(resolve, 700));
+        const elapsed = Date.now() - startTime;
+        const remaining = minLoadingTime - elapsed;
+
+        await new Promise((resolve) =>
+          setTimeout(resolve, Math.max(0, remaining))
+        );
 
         if (controller.signal.aborted) return;
 
