@@ -1,4 +1,4 @@
-export interface ResponseFromBackend<T> {
+export interface ApiResponse<T> {
   info: {
     count: number;
     pages: number;

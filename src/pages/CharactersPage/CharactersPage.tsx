@@ -1,17 +1,11 @@
-import { useCallback, useTransition } from 'react';
 import { classNames } from '@/shared/lib';
-import { useFiltersStore } from '@/stores';
-import type { Filters } from '@/shared/types';
-import { useCharacters } from '@/shared/hooks';
 import { BannerCharactersPage } from '@/assets';
 import { CharactersList, FilterPanel } from '@/widgets';
 import { ErrorBoundary, ErrorFallback } from '@/shared/ui';
+import { useCharactersWithFilters } from '@/shared/hooks/useCharactersWithFilters';
 import './CharactersPage.scss';
 
 export const CharactersPage = () => {
-  const filters = useFiltersStore((state) => state.filters);
-  const setFilter = useFiltersStore((state) => state.setFilter);
-  const [isPending, startTransition] = useTransition();
   const {
     characters,
     isLoading,
@@ -19,17 +13,11 @@ export const CharactersPage = () => {
     loadMore,
     hasMore,
     isLoadingMore,
-    updateCharacter
-  } = useCharacters(filters);
-
-  const handleFilterChange = useCallback(
-    <K extends keyof Filters>(key: K, value: Filters[K]) => {
-      startTransition(() => {
-        setFilter(key, value);
-      });
-    },
-    [setFilter]
-  );
+    updateCharacter,
+    filters,
+    handleFilterChange,
+    isPending
+  } = useCharactersWithFilters();
 
   return (
     <div className='characters-page container'>

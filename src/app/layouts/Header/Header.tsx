@@ -12,7 +12,7 @@ export const Header = () => {
       <div className='header__info container'>
         <div className='header__logo'>
           <Link
-            to={'/'}
+            to='/'
             onClick={resetFilters}
           >
             <LogoLightTheme />
