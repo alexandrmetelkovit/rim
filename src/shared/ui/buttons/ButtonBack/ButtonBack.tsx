@@ -1,4 +1,4 @@
-import { ArrowBack } from '@/shared/assets';
+import { ArrowBack } from '@/assets';
 import './ButtonBack.scss';
 
 interface ButtonBackProps {

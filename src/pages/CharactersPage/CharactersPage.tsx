@@ -1,16 +1,11 @@
-import { useTransition } from 'react';
-import { FilterPanel } from '@/widgets';
-import { CharactersList } from '@/widgets';
-import { BannerCharactersPage } from '@/shared/assets';
-import { useCharacters, useFilters } from '@/shared/hooks';
-import { ErrorBoundary, ErrorFallback } from '@/shared/ui';
-import './CharactersPage.scss';
-import type { Filters } from '@/shared/types';
 import { classNames } from '@/shared/lib';
+import { BannerCharactersPage } from '@/assets';
+import { CharactersList, FilterPanel } from '@/widgets';
+import { ErrorBoundary, ErrorFallback } from '@/shared/ui';
+import { useCharactersWithFilters } from '@/shared/hooks/useCharactersWithFilters';
+import './CharactersPage.scss';
 
 export const CharactersPage = () => {
-  const { filters, updateFilters } = useFilters();
-  const [isPending, startTransition] = useTransition();
   const {
     characters,
     isLoading,
@@ -18,17 +13,11 @@ export const CharactersPage = () => {
     loadMore,
     hasMore,
     isLoadingMore,
-    updateCharacter
-  } = useCharacters(filters);
-
-  const handleFilterChange = <K extends keyof Filters>(
-    key: K,
-    value: Filters[K]
-  ) => {
-    startTransition(() => {
-      updateFilters(key, value);
-    });
-  };
+    updateCharacter,
+    filters,
+    handleFilterChange,
+    isPending
+  } = useCharactersWithFilters();
 
   return (
     <div className='characters-page container'>
@@ -43,7 +32,6 @@ export const CharactersPage = () => {
       <div className='characters-page__body'>
         <FilterPanel
           filters={filters}
-          // updateFilters={updateFilters}
           updateFilters={handleFilterChange}
         />
         <ErrorBoundary

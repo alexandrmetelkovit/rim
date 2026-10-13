@@ -1,6 +1,6 @@
 import type { AxiosResponse } from 'axios';
 import type { ApiCharacter } from '@/shared/types';
-import { apiClient, type ApiResponse } from '@/shared/api';
+import { apiClient, type ApiResponse } from '@/api';
 
 export const getCharacters = async (
   params: Record<string, string>,

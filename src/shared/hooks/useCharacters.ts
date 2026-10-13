@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { getCharacters } from '../api';
+import { getCharacters } from '@/api';
 import { normalizeStatus } from '../lib';
-import type { Character, CharacterPayload, Filters } from '../types';
 import { MIN_LOADING_TIME } from '../constants';
+import type { Character, CharacterPayload, Filters } from '../types';
 
 export const useCharacters = (filters: Filters) => {
   const [characters, setCharacters] = useState<Character[]>([]);

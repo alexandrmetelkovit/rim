@@ -1,6 +1,6 @@
 import type { ChangeEvent, ComponentType, SVGProps } from 'react';
 import { classNames } from '@/shared/lib';
-import { SearchClearIcon } from '@/shared/assets';
+import { SearchClearIcon } from '@/assets';
 import './TextInput.scss';
 
 interface TextInputProps {
