@@ -2,14 +2,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
   gap: 25px;
 
   &__error,
   &__empty {
     font-size: 25px;
     font-weight: 500;
-    position: absolute;
-    top: 304px;
+    display: flex;
+    justify-content: center;
+    margin: 304px 0;
   }
 
   &__error {
@@ -25,6 +27,8 @@
   }
 
   &__end {
+    padding: 20px;
     font-size: 25px;
+    text-align: center;
   }
 }

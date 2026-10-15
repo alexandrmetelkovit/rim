@@ -2,7 +2,7 @@ import { classNames } from '@/shared/lib';
 import { BannerCharactersPage } from '@/assets';
 import { CharactersList, FilterPanel } from '@/widgets';
 import { ErrorBoundary, ErrorFallback } from '@/shared/ui';
-import { useCharactersWithFilters } from '@/shared/hooks/useCharactersWithFilters';
+import { useCharactersWithFilters } from '@/shared/hooks';
 import './CharactersPage.scss';
 
 export const CharactersPage = () => {
@@ -37,8 +37,8 @@ export const CharactersPage = () => {
         <ErrorBoundary
           fallback={<ErrorFallback message='Failed to load characters list' />}
         >
-          <div
-            className={classNames({
+          <section
+            className={classNames('characters-page__list', {
               'characters-page__list_pending': isPending
             })}
           >
@@ -51,7 +51,7 @@ export const CharactersPage = () => {
               isLoadingMore={isLoadingMore}
               updateCharacter={updateCharacter}
             />
-          </div>
+          </section>
         </ErrorBoundary>
       </div>
     </div>
