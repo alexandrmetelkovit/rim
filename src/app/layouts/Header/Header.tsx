@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/shared/ui';
-import { useFiltersStore } from '@/stores';
 import { LogoLightTheme, SunIcon } from '@/assets';
+import { useCharactersWithFilters } from '@/shared/hooks';
 import './Header.scss';
 
 export const Header = () => {
-  const resetFilters = useFiltersStore((state) => state.resetFilters);
+  const { resetFilters } = useCharactersWithFilters();
 
   return (
     <header className='header'>

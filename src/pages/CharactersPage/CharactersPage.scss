@@ -15,16 +15,20 @@
   }
 
   &__body {
-    width: 1044px;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 25px;
-    position: relative;
   }
 
-  &__list_pending {
-    opacity: 0.6;
-    transition: opacity 0.2s ease;
+  &__list {
+    max-width: 100%;
+
+    &_pending {
+      opacity: 0.6;
+      transition: opacity 0.2s ease;
+    }
   }
 }
