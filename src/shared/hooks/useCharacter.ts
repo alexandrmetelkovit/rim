@@ -18,8 +18,7 @@ export const useCharacter = (id: number) => {
       ...response.data,
       status: normalizeStatus(response.data.status)
     }),
-    enabled: !isInvalidId,
-    staleTime: 5 * 60 * 1000
+    enabled: !isInvalidId
   });
 
   const isNotFound =

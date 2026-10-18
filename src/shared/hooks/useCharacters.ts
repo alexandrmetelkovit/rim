@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
-import { getCharacters } from '@/api';
+import { getCharacters, type ApiResponse } from '@/api';
 import { useInfiniteQuery, useQueryClient } from '@tanstack/react-query';
 import { normalizeStatus } from '../lib';
-import type { CharacterPayload, CharactersPage, Filters } from '../types';
+import type { ApiCharacter, CharacterPayload, Filters } from '../types';
 
 export const useCharacters = (filters: Filters) => {
   const queryClient = useQueryClient();
@@ -17,23 +17,24 @@ export const useCharacters = (filters: Filters) => {
   } = useInfiniteQuery({
     queryKey: ['characters', filters],
     queryFn: ({ pageParam, signal }) => {
-      const params: Record<string, string> = {
-        ...(filters.name && { name: filters.name }),
-        ...(filters.species && { species: filters.species }),
-        ...(filters.gender && { gender: filters.gender }),
-        ...(filters.status && { status: filters.status }),
+      const params = {
+        ...filters,
         page: String(pageParam)
       };
+
       return getCharacters(params, signal);
     },
     initialPageParam: 1,
-    getNextPageParam: (lastPage) => {
+    getNextPageParam: (lastPage: { data: ApiResponse<ApiCharacter> }) => {
       const nextPageUrl = lastPage.data.info.next;
       if (!nextPageUrl) return undefined;
       const nextPage = Number(new URL(nextPageUrl).searchParams.get('page'));
       return nextPage;
     },
-    select: (data) => ({
+    select: (data: {
+      pages: { data: ApiResponse<ApiCharacter> }[];
+      pageParams: number[];
+    }) => ({
       pages: data.pages.map((page) => ({
         ...page.data,
         results: page.data.results.map((character) => ({
@@ -53,7 +54,10 @@ export const useCharacters = (filters: Filters) => {
         ['characters', filters],
         (
           oldData:
-            | { pages: { data: CharactersPage }[]; pageParams: number[] }
+            | {
+                pages: { data: ApiResponse<ApiCharacter> }[];
+                pageParams: number[];
+              }
             | undefined
         ) => {
           if (!oldData) return oldData;
