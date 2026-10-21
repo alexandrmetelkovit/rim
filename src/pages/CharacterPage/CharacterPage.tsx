@@ -1,7 +1,7 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { useCharacter } from '@/shared/hooks';
-import { STATUS_OPTIONS } from '@/shared/constants';
 import { ButtonBack, Loader } from '@/shared/ui';
+import { STATUS_OPTIONS } from '@/shared/constants';
 import './CharacterPage.scss';
 
 export const CharacterPage = () => {
