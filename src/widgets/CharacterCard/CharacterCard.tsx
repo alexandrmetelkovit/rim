@@ -132,6 +132,7 @@ export const CharacterCard = memo(
           {isEditing ? (
             <>
               <button
+                type='button'
                 className='character-card__reset'
                 onClick={handleResetClick}
                 aria-label='Reset changes'
@@ -139,6 +140,7 @@ export const CharacterCard = memo(
                 <ResetIcon />
               </button>
               <button
+                type='button'
                 className='character-card__done'
                 onClick={handleDoneClick}
                 aria-label='Save changes'
@@ -148,6 +150,7 @@ export const CharacterCard = memo(
             </>
           ) : (
             <button
+              type='button'
               className='character-card__edit'
               onClick={handleEditClick}
               aria-label='Edit character'
