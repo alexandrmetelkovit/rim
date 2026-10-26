@@ -13,7 +13,7 @@ export const Loader = ({ size, text }: LoaderProps) => {
 
   return (
     <div
-      className={`loader loader--${size}`}
+      className={`loader loader_${size}`}
       role='status'
       aria-label={text || 'Loading...'}
     >
