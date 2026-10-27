@@ -72,6 +72,7 @@ export const Select = <T,>({
       ref={componentRef}
     >
       <button
+        type='button'
         onClick={toggleSelect}
         className={classNames('select__button', `select__button_${size}`)}
       >
