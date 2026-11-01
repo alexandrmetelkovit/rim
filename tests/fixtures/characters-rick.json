@@ -1,0 +1,95 @@
+{
+  "info": {
+    "count": 107,
+    "pages": 6,
+    "next": "https://rickandmortyapi.com/api/character?page=2&name=Rick",
+    "prev": null
+  },
+  "results": [
+    {
+      "id": 1,
+      "name": "Rick Sanchez",
+      "status": "Alive",
+      "species": "Human",
+      "type": "",
+      "gender": "Male",
+      "origin": {
+        "name": "Earth (C-137)",
+        "url": "https://rickandmortyapi.com/api/location/1"
+      },
+      "location": {
+        "name": "Citadel of Ricks",
+        "url": "https://rickandmortyapi.com/api/location/3"
+      },
+      "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+    },
+    {
+      "id": 8,
+      "name": "Adjudicator Rick",
+      "status": "Dead",
+      "species": "Human",
+      "type": "",
+      "gender": "Male",
+      "origin": {
+        "name": "unknown",
+        "url": ""
+      },
+      "location": {
+        "name": "Citadel of Ricks",
+        "url": "https://rickandmortyapi.com/api/location/3"
+      },
+      "image": "https://rickandmortyapi.com/api/character/avatar/8.jpeg"
+    },
+    {
+      "id": 15,
+      "name": "Alien Rick",
+      "status": "unknown",
+      "species": "Alien",
+      "type": "",
+      "gender": "Male",
+      "origin": {
+        "name": "unknown",
+        "url": ""
+      },
+      "location": {
+        "name": "Citadel of Ricks",
+        "url": "https://rickandmortyapi.com/api/location/3"
+      },
+      "image": "https://rickandmortyapi.com/api/character/avatar/15.jpeg"
+    },
+    {
+      "id": 19,
+      "name": "Antenna Rick",
+      "status": "unknown",
+      "species": "Human",
+      "type": "Human with antennae",
+      "gender": "Male",
+      "origin": {
+        "name": "unknown",
+        "url": ""
+      },
+      "location": {
+        "name": "unknown",
+        "url": ""
+      },
+      "image": "https://rickandmortyapi.com/api/character/avatar/19.jpeg"
+    },
+    {
+      "id": 22,
+      "name": "Aqua Rick",
+      "status": "unknown",
+      "species": "Humanoid",
+      "type": "Fish-Person",
+      "gender": "Male",
+      "origin": {
+        "name": "unknown",
+        "url": ""
+      },
+      "location": {
+        "name": "Citadel of Ricks",
+        "url": "https://rickandmortyapi.com/api/location/3"
+      },
+      "image": "https://rickandmortyapi.com/api/character/avatar/22.jpeg"
+    }
+  ]
+}
