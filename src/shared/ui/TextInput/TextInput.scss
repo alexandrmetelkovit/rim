@@ -5,13 +5,14 @@
   padding: 16px;
   gap: 5px;
   border-radius: 8px;
-  border: 1px solid #00000061;
+  border: 1px solid var(--color-border-text-input);
+  background-color: var(--color-bg-text-input);
 
   &_underlined {
     width: 178px;
     height: 30px;
     border: none;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid var(--color-border-text-input);
     border-radius: 0;
     padding: 0;
   }
@@ -23,12 +24,16 @@
   &__icon {
     min-width: 24px;
     min-height: 24px;
+    background-color: var(--color-bg-text-input);
+    color: var(--color-icon-text-input);
   }
 
   &__field {
     width: 166px;
     font-size: 16px;
     font-weight: 400;
+    background-color: var(--color-bg-text-input);
+    color: var(--color-text-text-input);
 
     &_underlined {
       font-size: 20px;
@@ -42,14 +47,18 @@
   }
 
   &__clear-button {
-    background-color: transparent;
-    min-width: 9px;
-    min-height: 9px;
+    background-color: var(--color-bg-text-input);
     cursor: pointer;
     transition: 0.2s opacity ease-in;
 
     &:hover {
       opacity: 0.7;
     }
+  }
+
+  &__icon {
+    min-width: 9px;
+    min-height: 9px;
+    color: var(--color-icon-text-input);
   }
 }

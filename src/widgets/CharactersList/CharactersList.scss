@@ -15,7 +15,7 @@
   }
 
   &__error {
-    color: #d42929ff;
+    color: var(--dead-status);
   }
 
   &__trigger {
@@ -30,5 +30,6 @@
     padding: 20px;
     font-size: 25px;
     text-align: center;
+    color: var(--color-text-black);
   }
 }

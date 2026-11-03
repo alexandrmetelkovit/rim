@@ -65,7 +65,10 @@ export const TextInput = ({
           className='text-input__clear-button'
           aria-label='Clear input'
         >
-          <SearchClearIcon aria-hidden='true' />
+          <SearchClearIcon
+            className='text-input__icon'
+            aria-hidden='true'
+          />
         </button>
       )}
     </div>

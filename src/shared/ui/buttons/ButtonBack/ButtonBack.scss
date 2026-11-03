@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: inherit;
+  background-color: var(--color-bg-button-back);
   cursor: pointer;
   transition: 0.2s all ease-in;
 
@@ -12,9 +12,14 @@
     opacity: 0.8;
   }
 
+  &__button {
+    color: var(--color-bg-icon-button-back);
+  }
+
   &__text {
     font-family: Karla, sans-serif;
     font-size: 18px;
     font-weight: 700;
+    color: var(--color-text-button-back);
   }
 }
