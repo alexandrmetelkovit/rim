@@ -1,7 +1,8 @@
 .header {
   height: 60px;
-  box-shadow: -2px 0 8px 2px #0000001a;
   padding: 5px;
+  background-color: var(--color-bg-header);
+  box-shadow: -2px 0 8px 2px var(--color-shadow-header);
 
   &__info {
     display: flex;
@@ -12,6 +13,10 @@
   &__logo {
     cursor: pointer;
     transition: 0.2s all ease-in;
+
+    &-image {
+      color: var(--theme-icon);
+    }
 
     &:hover {
       opacity: 0.8;

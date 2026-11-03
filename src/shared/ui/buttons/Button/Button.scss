@@ -2,14 +2,15 @@
   width: 38px;
   height: 38px;
   background: #fff;
-  border: 1px solid #393939;
+  border: 1px solid var(--color-border-button);
   border-radius: 8px;
   cursor: pointer;
   transition: 0.2s all ease-in;
+  background-color: var(--color-bg-button);
 
   &:hover {
     opacity: 0.8;
-    background-color: azure;
+    background-color: var(--color-hover-button);
   }
 
   &:active {
@@ -24,6 +25,6 @@
   &__text {
     font-family: Roboto, sans-serif;
     font-size: 25px;
-    color: #0009;
+    color: var(--color-text-button);
   }
 }

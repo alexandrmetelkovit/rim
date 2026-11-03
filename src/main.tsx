@@ -7,6 +7,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { router } from './app/router';
 import { queryClient } from './app/providers';
 import './app/styles';
+import { ThemeProvider } from './app/providers/ThemeProvider';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -14,7 +15,9 @@ createRoot(document.getElementById('root')!).render(
       fallback={<ErrorFallback message='Sorry, something went wrong' />}
     >
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
+        <ThemeProvider>
+          <RouterProvider router={router} />
+        </ThemeProvider>
         <ReactQueryDevtools initialIsOpen={false} />
         {import.meta.env.DEV && <ReactQueryDevtools initialIsOpen={false} />}
       </QueryClientProvider>

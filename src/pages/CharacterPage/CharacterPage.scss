@@ -25,6 +25,7 @@
     object-fit: cover;
     min-width: 300px;
     border-radius: 50%;
+    border: 5px solid var(--color-border-image-character-page);
   }
 
   &__name {
@@ -32,7 +33,7 @@
     font-weight: 400;
     font-size: 48px;
     text-align: center;
-    color: #081f32;
+    color: var(--color-name-character-page);
   }
 
   &__info {
@@ -47,7 +48,7 @@
     font-family: Roboto, sans-serif;
     font-weight: 500;
     font-size: 20px;
-    color: #8e8e93;
+    color: var(--color-list-title-character-page);
     text-align: center;
   }
 
@@ -57,7 +58,7 @@
   }
 
   &__item {
-    border-bottom: 1px solid #21212114;
+    border-bottom: 1px solid var(--color-border-bottom-item-character-page);
     min-width: 100%;
     min-height: 64px;
     padding: 9px 0;
@@ -69,14 +70,14 @@
     font-family: Roboto, sans-serif;
     font-weight: 700;
     font-size: 16px;
-    color: #081f32;
+    color: var(--color-title-character-page);
   }
 
   &__option {
     font-family: Roboto, sans-serif;
     font-weight: 400;
     font-size: 14px;
-    color: #6e798c;
+    color: var(--color-option-character-page);
   }
 
   &__error {
@@ -88,6 +89,7 @@
     min-width: 100%;
     font-size: 25px;
     font-weight: 500;
+    color: var(--color-error-character-page);
   }
 
   &__loader {

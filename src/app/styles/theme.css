@@ -1,0 +1,303 @@
+:root {
+		/* HEADER.tsx */
+	
+	/* bg HEADER.tsx */
+	--color-bg-header:#FFF;
+
+	/* box-shadow HEADER */
+	--color-shadow-header:#0000001A;
+
+
+		/* MAIN.tsx */
+
+	/* bg MAIN */
+	--color-bg-main:#FFF;
+
+
+		/* FOOTER.tsx */
+
+	/* bg FOOTER */
+	--color-bg-footer:#FFF;
+
+	/* shadow FOOTER */
+	--color-shadow-footer:#0000001A;
+
+	/* текст FOOTER */
+	--color-text:#151515;
+
+
+		/* Button.tsx */
+
+	/* bg Button */
+	--color-bg-button:#fff;
+
+	/* border Button */
+	--color-border-button:#393939;
+
+	/* hover Button */
+	--color-hover-button: #393939;
+
+	/* иконка logo BUTTON */
+	--theme-icon:#000;
+
+	/* text Button */
+	--color-text-button:#0009;
+
+
+		/* TEXTINPUT.tsx */
+
+	/* bg TEXTINPUT */
+	--color-bg-text-input:#FFF;
+
+	/* border TEXTINPUT */
+	--color-border-text-input:#00000080;
+	
+	/* bg icon TEXTINPUT */
+	--color-icon-text-input:#0000008A;
+
+	/* text TEXTINPUT */
+	--color-text-text-input:#000;
+
+
+		/* SELECT.tsx */
+
+	/* bg SELECT */
+	--color-bg-select:#FFF;
+
+	/* border SELECT */
+	--color-border-select:#393939;
+	
+	/* bg icon SELECT */
+	--color-icon-select:#0000008A;
+
+	/* hover icon SELECT */
+	--color-hover-icon-select:#0000008A;
+
+	/* text SELECT */
+	--color-text-select:#0009;
+
+
+		/* CHARECTER-CARD.tsx */
+
+	/* bg CHARECTER-CARD */
+	--color-bg-character-card:#FFF;
+
+	/* shadow CHARECTER-CARD */
+	--color-shadow-character-card:#00000040;
+
+	/* border CHARECTER-CARD */
+	--color-border-character-card:#393939;
+	
+	/* bg icon CHARECTER-CARD */
+	--color-icon-character-card:#000;
+
+	/* hover icon CHARECTER-CARD */
+	--color-hover-icon-character-card:#0000008A;
+
+	/* name CHARECTER-CARD */
+	--color-name-character-card:#000000DE;
+
+	/* text CHARECTER-CARD */
+	--color-title-character-card:#3F3F3F;
+
+	/* text CHARECTER-CARD */
+	--color-option-character-card:#0009;
+
+
+		/* LOADER.tsx */
+
+	/* text LOADER */
+	--color-text-loader:#212121;
+
+
+		/* CHARACTER-PAGE.tsx */
+
+	/* border image CHARACTER-PAGE */
+	--color-border-image-character-page:#F2F2F7;
+
+	/* name CHARACTER-PAGE */
+	--color-name-character-page:#081F32;
+
+	/* list-title (information) CHARACTER-PAGE */
+	--color-list-title-character-page:#8E8E93;
+
+	/* title CHARACTER-PAGE */
+	--color-title-character-page:#081F32;
+
+	/* option CHARACTER-PAGE */
+	--color-option-character-page:#6E798C;
+
+		/* border-bottom-item CHARACTER-PAGE */
+	--color-border-bottom-item-character-page:#21212114;
+
+	/* error CHARACTER-PAGE */
+	--color-error-character-page:#151515;
+
+
+			/* BUTTON-BACK.tsx */
+
+	/* border image BUTTON-BACK */
+	--color-bg-button-back:#fff;
+
+	/* text BUTTON-BACK */
+	--color-text-button-back:#000;
+
+	/* bg icon BUTTON-BACK */
+	--color-bg-icon-button-back:#000;
+
+
+	/* status  */
+	--dead-status: #df0000;
+	--alive-status: #12b800;
+	--unknown-status: #f90;
+}
+
+:root.dark {
+		/* HEADER.tsx dark */
+	
+	/* bg HEADER dark */
+	--color-bg-header:#151515;
+
+	/* box-shadow HEADER dark */
+	--color-shadow-header:#0000001A;
+	
+
+		/* MAIN.tsx dark */
+
+	/* bg MAIN dark */
+	--color-bg-main:#333;
+
+
+		/* FOOTER.tsx dark */
+
+	/* bg FOOTER dark */
+	--color-bg-footer:#151515;
+
+	/* shadow FOOTER dark */
+	--color-shadow-footer:#0000001A;
+
+	/* текст FOOTER dark */
+	--color-text:#CACACA;
+
+
+		/* Button.tsx dark */
+
+	/* bg Button dark */
+	--color-bg-button:#333;
+
+	/* border Button dark */
+	--color-border-button:#CACACA;
+
+	/* hover Button dark */
+	--color-hover-button: #fff;
+
+	/* иконка logo BUTTON dark */
+	--theme-icon:#fff;
+
+	/* text Button */
+	--color-text-button:#CACACA;
+
+
+		/* TEXTINPUT.tsx */
+
+	/* TEXTINPUT */
+
+	/* bg TEXTINPUT dark */
+	--color-bg-text-input:#151515;
+
+	/* border TEXTINPUT dark */
+	--color-border-text-input:#CACACA;
+	
+	/* bg icon TEXTINPUT dark */
+	--color-icon-text-input:#CACACA;
+
+	/* text TEXTINPUT dark */
+	--color-text-text-input:#fff;
+
+
+		/* SELECT.tsx dark */
+
+	/* bg SELECT dark */
+	--color-bg-select:#151515;
+
+	/* border SELECT dark */
+	--color-border-select:#FFF;
+	
+	/* bg icon SELECT dark */
+	--color-icon-select:#CACACA;
+
+	/* text SELECT dark */
+	--color-text-select:#CACACA;
+
+	/* hover icon SELECT */
+	--color-hover-icon-select:#567687;
+
+
+		/* CHARECTER-CARD.tsx dark */
+
+	/* bg CHARECTER-CARD dark */
+	--color-bg-character-card:#151515;
+
+	/* shadow CHARECTER-CARD dark */
+	--color-shadow-character-card:#CACACA;
+
+	/* border CHARECTER-CARD dark */
+	--color-border-character-card:#393939;
+	
+	/* bg icon CHARECTER-CARD dark */
+	--color-icon-character-card:#CACACA;
+
+	/* hover icon CHARECTER-CARD dark */
+	--color-hover-icon-character-card:#CACACA;
+
+	/* name CHARECTER-CARD dark */
+	--color-name-character-card:#FFF;
+
+	/* text CHARECTER-CARD dark */
+	--color-title-character-card:#FFF;
+
+	/* text CHARECTER-CARD dark */
+	--color-option-character-card:#CACACA;
+
+
+		/* LOADER.tsx dark */
+
+	/* text LOADER dark */
+	--color-text-loader:#CACACA;
+
+
+		/* CHARACTER-PAGE.tsx dark */
+
+	/* border image CHARACTER-PAGE dark */
+	--color-border-image-character-page:#F2F2F7;
+
+	/* name CHARACTER-PAGE dark */
+	--color-name-character-page:#fff;
+	
+	/* list-title (information) CHARACTER-PAGE dark */
+	--color-list-title-character-page:#CACACA;
+	
+	/* title CHARACTER-PAGE dark */
+	--color-title-character-page:#fff;
+	
+	/* option CHARACTER-PAGE dark */
+	--color-option-character-page:#CACACA;
+
+	/* border-bottom-item CHARACTER-PAGE dark */
+	--color-border-bottom-item-character-page:#fff;
+
+	/* error CHARACTER-PAGE dark  */
+	--color-error-character-page:#151515;
+
+
+		/* BUTTON-BACK.tsx dark */
+
+	/* border image BUTTON-BACK dark */
+	--color-bg-button-back:#333;
+
+	/* text BUTTON-BACK dark */
+	--color-text-button-back:#fff;
+
+	/* bg icon BUTTON-BACK dark */
+	--color-bg-icon-button-back:#fff;
+}
