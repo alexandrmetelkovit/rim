@@ -6,14 +6,14 @@
   flex-shrink: 0;
 
   &_green {
-    background-color: #12b800;
+    background-color: var(--alive-status);
   }
 
   &_red {
-    background-color: #df0000;
+    background-color: var(--dead-status);
   }
 
   &_orange {
-    background-color: #f90;
+    background-color: var(--unknown-status);
   }
 }
