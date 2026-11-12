@@ -1,8 +1,9 @@
 import { memo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { STATUS_OPTIONS } from '@/shared/constants';
-import { Select, StatusOption, TextInput } from '@/shared/ui';
 import { DoneIcon, EditIcon, ResetIcon } from '@/assets';
+import { Select, StatusOption, TextInput } from '@/shared/ui';
 import type { Character, CharacterPayload, Status } from '@/shared/types';
 import './CharacterCard.scss';
 
@@ -21,6 +22,7 @@ export const CharacterCard = memo(
     image,
     updateCharacter
   }: CharacterCardProps) => {
+    const { t } = useTranslation();
     const [editName, setEditName] = useState(initialName);
     const [editLocation, setEditLocation] = useState(initialLocation.name);
     const [selectedStatus, setSelectedStatus] = useState<Status>(initialStatus);
@@ -79,15 +81,23 @@ export const CharacterCard = memo(
 
           <ol className='character-card__list'>
             <li className='character-card__item'>
-              <p className='character-card__title'>Gender</p>
+              <p className='character-card__title'>
+                {t('characterCard.gender')}
+              </p>
               <span className='character-card__option'>{gender}</span>
             </li>
             <li className='character-card__item'>
-              <p className='character-card__title'>Species</p>
+              <p className='character-card__title'>
+                {' '}
+                {t('characterCard.species')}
+              </p>
               <span className='character-card__option'>{species}</span>
             </li>
             <li className='character-card__item'>
-              <p className='character-card__title'>Location</p>
+              <p className='character-card__title'>
+                {' '}
+                {t('characterCard.location')}
+              </p>
               {isEditing ? (
                 <TextInput
                   id={`location-${id}`}
@@ -101,7 +111,10 @@ export const CharacterCard = memo(
               )}
             </li>
             <li className='character-card__item'>
-              <p className='character-card__title'>Status</p>
+              <p className='character-card__title'>
+                {' '}
+                {t('characterCard.status')}
+              </p>
               {isEditing ? (
                 <Select
                   size='small'
@@ -135,7 +148,7 @@ export const CharacterCard = memo(
                 type='button'
                 className='character-card__reset'
                 onClick={handleResetClick}
-                aria-label='Reset changes'
+                aria-label={t('characterCard.reset')}
               >
                 <ResetIcon />
               </button>
@@ -143,7 +156,7 @@ export const CharacterCard = memo(
                 type='button'
                 className='character-card__done'
                 onClick={handleDoneClick}
-                aria-label='Save changes'
+                aria-label={t('characterCard.save')}
               >
                 <DoneIcon />
               </button>
@@ -153,7 +166,7 @@ export const CharacterCard = memo(
               type='button'
               className='character-card__edit'
               onClick={handleEditClick}
-              aria-label='Edit character'
+              aria-label={t('characterCard.edit')}
             >
               <EditIcon />
             </button>

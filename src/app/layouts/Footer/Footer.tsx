@@ -1,5 +1,8 @@
+import { useTranslation } from 'react-i18next';
 import './Footer.scss';
 
 export const Footer = () => {
-  return <footer className='footer'>Made with love by Ax</footer>;
+  const { t } = useTranslation();
+
+  return <footer className='footer'>{t('footer.text')}</footer>;
 };

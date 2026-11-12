@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { useCharacter } from '@/shared/hooks';
 import { ButtonBack, Loader } from '@/shared/ui';
@@ -5,6 +6,7 @@ import { STATUS_OPTIONS } from '@/shared/constants';
 import './CharacterPage.scss';
 
 export const CharacterPage = () => {
+  const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const characterId = Number(id);
   const { isLoading, isError, character, isNotFound } =
@@ -15,7 +17,7 @@ export const CharacterPage = () => {
       <div className='character-page__loader'>
         <Loader
           size='medium'
-          text='Loading character card...'
+          text={t('characterPage.loading')}
         />
       </div>
     );
@@ -36,7 +38,7 @@ export const CharacterPage = () => {
         className='character-page__error'
         role='alert'
       >
-        🤷‍♂️ Character not found...
+        🤷‍♂️ {t('characterPage.notFound')}
       </p>
     );
   }
@@ -54,9 +56,9 @@ export const CharacterPage = () => {
       <div className='character-page__actions'>
         <Link
           to='/'
-          aria-label='Back to characters list'
+          aria-label={t('characterPage.back')}
         >
-          <ButtonBack />
+          <ButtonBack text={t('buttonBack.text')} />
         </Link>
       </div>
       <div className='character-page__body'>
@@ -78,42 +80,54 @@ export const CharacterPage = () => {
             id='info-title'
             className='character-page__list-title'
           >
-            Information
+            {t('characterPage.information')}
           </h2>
           <ol
             className='character-page__list'
             aria-label='Character information'
           >
             <li className='character-page__item'>
-              <span className='character-page__title'>Gender</span>
+              <span className='character-page__title'>
+                {t('characterPage.gender')}
+              </span>
               <span className='character-page__option'>{character.gender}</span>
             </li>
             <li className='character-page__item'>
-              <span className='character-page__title'>Status</span>
+              <span className='character-page__title'>
+                {t('characterPage.status')}
+              </span>
               <span className='character-page__option'>
                 {currentStatus?.label}
               </span>
             </li>
             <li className='character-page__item'>
-              <span className='character-page__title'>Species</span>
+              <span className='character-page__title'>
+                {t('characterPage.species')}
+              </span>
               <span className='character-page__option'>
                 {character.species}
               </span>
             </li>
             <li className='character-page__item'>
-              <span className='character-page__title'>Origin</span>
+              <span className='character-page__title'>
+                {t('characterPage.origin')}
+              </span>
               <span className='character-page__option'>
                 {character.origin.name}
               </span>
             </li>
             <li className='character-page__item'>
-              <span className='character-page__title'>Type</span>
+              <span className='character-page__title'>
+                {t('characterPage.type')}
+              </span>
               <span className='character-page__option'>
                 {character.type || 'Unknown'}
               </span>
             </li>
             <li className='character-page__item'>
-              <span className='character-page__title'>Location</span>
+              <span className='character-page__title'>
+                {t('characterPage.location')}
+              </span>
               <span className='character-page__option'>
                 {character.location.name}
               </span>

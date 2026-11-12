@@ -1,4 +1,5 @@
 import { memo, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { SearchIcon } from '@/assets';
 import { useDebounce } from '@/shared/hooks';
 import type { Filters } from '@/shared/types';
@@ -17,6 +18,7 @@ export interface FilterPanelProps {
 
 export const FilterPanel = memo(
   ({ filters, updateFilters }: FilterPanelProps) => {
+    const { t } = useTranslation();
     const [nameInput, setNameInput] = useState(filters.name);
     const debouncedName = useDebounce(nameInput, 500);
     const updateFiltersRef = useRef(updateFilters);
@@ -36,7 +38,7 @@ export const FilterPanel = memo(
         <TextInput
           id='filter-name'
           variant='bordered'
-          placeholder='Filter by name...'
+          placeholder={t('filters.namePlaceholder')}
           LeftIcon={SearchIcon}
           value={nameInput}
           onChange={(value) => {
@@ -45,19 +47,19 @@ export const FilterPanel = memo(
         />
         <Select
           options={SPECIES_OPTIONS}
-          placeholder='Species'
+          placeholder={t('filters.speciesPlaceholder')}
           value={filters.species}
           onChange={(value) => updateFilters('species', value)}
         />
         <Select
           options={GENDER_OPTIONS}
-          placeholder='Gender'
+          placeholder={t('filters.genderPlaceholder')}
           value={filters.gender}
           onChange={(value) => updateFilters('gender', value)}
         />
         <Select
           options={STATUS_OPTIONS}
-          placeholder='Status'
+          placeholder={t('filters.statusPlaceholder')}
           value={filters.status}
           onChange={(value) => updateFilters('status', value)}
         />

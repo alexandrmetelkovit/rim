@@ -29,6 +29,7 @@ export const useCharacters = (filters: Filters) => {
       const nextPageUrl = lastPage.data.info.next;
       if (!nextPageUrl) return undefined;
       const nextPage = Number(new URL(nextPageUrl).searchParams.get('page'));
+
       return nextPage;
     },
     select: (data: {
@@ -61,6 +62,7 @@ export const useCharacters = (filters: Filters) => {
             | undefined
         ) => {
           if (!oldData) return oldData;
+
           return {
             ...oldData,
             pages: oldData.pages.map((page) => ({

@@ -1,0 +1,67 @@
+{
+  "header": {
+    "logoAlt": "Логотип",
+    "themeLight": "Переключить на светлую тему",
+    "themeDark": "Переключить на тёмную тему",
+    "langButton": "РУ"
+  },
+  "filters": {
+    "namePlaceholder": "Фильтр по имени...",
+    "speciesPlaceholder": "Вид",
+    "genderPlaceholder": "Пол",
+    "statusPlaceholder": "Статус"
+  },
+  "characterCard": {
+    "gender": "Пол",
+    "species": "Вид",
+    "location": "Локация",
+    "status": "Статус",
+    "edit": "Редактировать персонажа",
+    "reset": "Сбросить изменения",
+    "save": "Сохранить изменения"
+  },
+  "characterPage": {
+    "back": "Назад к списку персонажей",
+    "information": "Информация",
+    "gender": "Пол",
+    "status": "Статус",
+    "species": "Вид",
+    "origin": "Происхождение",
+    "type": "Тип",
+    "location": "Локация",
+    "notFound": "Персонаж не найден...",
+    "loading": "Загрузка карточки персонажа..."
+  },
+  "buttonBack": {
+    "text": "НАЗАД"
+  },
+  "charactersPage": {
+    "bannerImage": "Баннер Рик и Морти"
+  },
+  "charactersList": {
+    "loading": "Загрузка персонажей...",
+    "empty": "Персонажи не найдены. Попробуйте другой фильтр.",
+    "error": "Ошибка сервера. Попробуйте позже.",
+    "end": "Больше нет персонажей..."
+  },
+  "notFoundPage": {
+    "back": "На главную"
+  },
+  "footer": {
+    "text": "Сделано с любовью Ax"
+  },
+  "errorBoundary": {
+    "title": "Что-то пошло не так",
+    "reload": "Перезагрузить страницу"
+  },
+  "errorBoundaryFallback": {
+    "default": "Что-то пошло не так",
+    "global": "Что-то пошло не так",
+    "router": "Что-то пошло не так",
+    "charactersList": "Не удалось загрузить список персонажей",
+    "reload": "Перезагрузить страницу"
+  },
+  "loader": {
+    "imgAttribute": "Загрузка..."
+  }
+}
