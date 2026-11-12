@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
-import { Button } from '@/shared/ui';
+import { useTranslation } from 'react-i18next';
 import { useThemeStore } from '@/stores';
-import { LogoLightTheme, SunIcon, MoonIcon } from '@/assets';
+import { Button, LangSwitcher } from '@/shared/ui';
 import { useCharactersWithFilters } from '@/shared/hooks';
+import { LogoLightTheme, MoonIcon, SunIcon } from '@/assets';
 import './Header.scss';
 
 export const Header = () => {
+  const { t } = useTranslation();
   const { resetFilters } = useCharactersWithFilters();
   const theme = useThemeStore((state) => state.theme);
   const toggleTheme = useThemeStore((state) => state.toggleTheme);
@@ -27,11 +29,9 @@ export const Header = () => {
           <Button
             icon={isDark ? <MoonIcon /> : <SunIcon />}
             onClick={toggleTheme}
-            aria-label={
-              isDark ? 'Switch to light theme' : 'Switch to dark theme'
-            }
+            aria-label={isDark ? t('header.themeLight') : t('header.themeDark')}
           />
-          <Button text='РУ' />
+          <LangSwitcher />
         </div>
       </div>
     </header>

@@ -1,0 +1,67 @@
+{
+  "header": {
+    "logoAlt": "Logo",
+    "themeLight": "Switch to light theme",
+    "themeDark": "Switch to dark theme",
+    "langButton": "EN"
+  },
+  "filters": {
+    "namePlaceholder": "Filter by name...",
+    "speciesPlaceholder": "Species",
+    "genderPlaceholder": "Gender",
+    "statusPlaceholder": "Status"
+  },
+  "characterCard": {
+    "gender": "Gender",
+    "species": "Species",
+    "location": "Location",
+    "status": "Status",
+    "edit": "Edit character",
+    "reset": "Reset changes",
+    "save": "Save changes"
+  },
+  "characterPage": {
+    "back": "Back to characters list",
+    "information": "Information",
+    "gender": "Gender",
+    "status": "Status",
+    "species": "Species",
+    "origin": "Origin",
+    "type": "Type",
+    "location": "Location",
+    "notFound": "Character not found...",
+    "loading": "Loading character card..."
+  },
+  "buttonBack": {
+    "text": "GO BACK"
+  },
+  "charactersPage": {
+    "bannerImage": "Banner Rick and Morty"
+  },
+  "charactersList": {
+    "loading": "Loading characters...",
+    "error": "Server error. Please try again later.",
+    "empty": "No characters found. Try another filter.",
+    "end": "No more characters..."
+  },
+  "notFoundPage": {
+    "back": "Go to main page"
+  },
+  "footer": {
+    "text": "Made with love by Ax"
+  },
+  "errorBoundary": {
+    "title": "Something went wrong",
+    "reload": "Reload page"
+  },
+  "errorBoundaryFallback": {
+    "default": "Sorry, something went wrong",
+    "global": "Sorry, something went wrong",
+    "router": "Sorry, something went wrong",
+    "charactersList": "Failed to load characters list",
+    "reload": "Reload page"
+  },
+  "loader": {
+    "imgAttribute": "Loading..."
+  }
+}

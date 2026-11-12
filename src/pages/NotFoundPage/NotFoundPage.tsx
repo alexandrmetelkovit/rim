@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { NotFoundPageImage } from '@/assets';
 import './NotFoundPage.scss';
 
 export const NotFoundPage = () => {
+  const { t } = useTranslation();
+
   return (
     <div
       className='not-found-page container'
@@ -17,7 +20,7 @@ export const NotFoundPage = () => {
         to='/'
         className='not-found-page__back'
       >
-        Go to main page
+        {t('notFoundPage.back')}
       </Link>
     </div>
   );

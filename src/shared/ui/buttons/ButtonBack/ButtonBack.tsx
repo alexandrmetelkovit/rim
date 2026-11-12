@@ -6,7 +6,7 @@ interface ButtonBackProps {
   onClick?: () => void;
 }
 
-export const ButtonBack = ({ text = 'GO BACK', onClick }: ButtonBackProps) => {
+export const ButtonBack = ({ text, onClick }: ButtonBackProps) => {
   return (
     <button
       className='button-back'

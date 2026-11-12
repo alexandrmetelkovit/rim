@@ -1,14 +1,21 @@
+import { useTranslation } from 'react-i18next';
 import './ErrorFallback.scss';
 
 interface ErrorFallbackProps {
-  message?: string;
+  messageKey?: string;
 }
 
-export const ErrorFallback = ({ message }: ErrorFallbackProps) => {
+export const ErrorFallback = ({ messageKey }: ErrorFallbackProps) => {
+  const { t } = useTranslation();
+
   return (
     <div className='error-fallback'>
-      <p>⚠️ {message}</p>
-      <button onClick={() => window.location.reload()}>Try again</button>
+      <p>
+        ⚠️ {messageKey ? t(messageKey) : t('errorBoundaryFallback.default')}
+      </p>
+      <button onClick={() => window.location.reload()}>
+        {t('errorBoundaryFallback.reload')}
+      </button>
     </div>
   );
 };
