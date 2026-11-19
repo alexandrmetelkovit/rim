@@ -22,7 +22,7 @@ export const CharacterCard = memo(
     image,
     updateCharacter
   }: CharacterCardProps) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('common');
     const [editName, setEditName] = useState(initialName);
     const [editLocation, setEditLocation] = useState(initialLocation.name);
     const [selectedStatus, setSelectedStatus] = useState<Status>(initialStatus);

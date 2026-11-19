@@ -18,7 +18,7 @@ export interface FilterPanelProps {
 
 export const FilterPanel = memo(
   ({ filters, updateFilters }: FilterPanelProps) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('characters');
     const [nameInput, setNameInput] = useState(filters.name);
     const debouncedName = useDebounce(nameInput, 500);
     const updateFiltersRef = useRef(updateFilters);
@@ -47,21 +47,21 @@ export const FilterPanel = memo(
         />
         <Select
           options={SPECIES_OPTIONS}
-          placeholder={t('filters.speciesPlaceholder')}
           value={filters.species}
           onChange={(value) => updateFilters('species', value)}
+          placeholder={t('filters.speciesPlaceholder')}
         />
         <Select
           options={GENDER_OPTIONS}
-          placeholder={t('filters.genderPlaceholder')}
           value={filters.gender}
           onChange={(value) => updateFilters('gender', value)}
+          placeholder={t('filters.genderPlaceholder')}
         />
         <Select
           options={STATUS_OPTIONS}
-          placeholder={t('filters.statusPlaceholder')}
           value={filters.status}
           onChange={(value) => updateFilters('status', value)}
+          placeholder={t('filters.statusPlaceholder')}
         />
       </div>
     );

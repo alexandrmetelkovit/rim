@@ -6,7 +6,7 @@ interface ErrorFallbackProps {
 }
 
 export const ErrorFallback = ({ messageKey }: ErrorFallbackProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
 
   return (
     <div className='error-fallback'>

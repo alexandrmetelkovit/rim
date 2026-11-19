@@ -4,7 +4,7 @@ import { NotFoundPageImage } from '@/assets';
 import './NotFoundPage.scss';
 
 export const NotFoundPage = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
 
   return (
     <div

@@ -1,0 +1,32 @@
+{
+  "characterCard": {
+    "gender": "Gender",
+    "species": "Species",
+    "location": "Location",
+    "status": "Status",
+    "edit": "Edit character",
+    "reset": "Reset changes",
+    "save": "Save changes"
+  },
+  "buttonBack": {
+    "text": "GO BACK"
+  },
+  "notFoundPage": {
+    "back": "Go to main page"
+  },
+  "errorBoundary": {
+    "title": "Something went wrong",
+    "reload": "Reload page"
+  },
+  "errorBoundaryFallback": {
+    "default": "Sorry, something went wrong",
+    "list": "Failed to load characters list",
+    "reload": "Reload page"
+  },
+  "loader": {
+    "imgAttribute": "Loading..."
+  },
+  "errors": {
+    "server": "Failed to load characters. Please try again."
+  }
+}

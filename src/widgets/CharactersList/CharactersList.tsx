@@ -24,7 +24,7 @@ export const CharactersList = ({
   isLoadingMore,
   updateCharacter
 }: CharactersListProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('characters');
   const { triggerRef } = useInfiniteScroll(loadMore);
   const isEmpty = characters.length === 0;
 
@@ -32,7 +32,7 @@ export const CharactersList = ({
     return (
       <Loader
         size='medium'
-        text={t('charactersList.loading')}
+        text={t('list.loading')}
       />
     );
   }
@@ -43,17 +43,13 @@ export const CharactersList = ({
         className='characters-list__error'
         role='alert'
       >
-        ⚠️ {t('charactersList.error')}
+        ⚠️ {t('list.error')}
       </span>
     );
   }
 
   if (isEmpty) {
-    return (
-      <span className='characters-list__empty'>
-        🤷‍♂️ {t('charactersList.empty')}
-      </span>
-    );
+    return <span className='characters-list__empty'>🤷‍♂️ {t('list.empty')}</span>;
   }
   return (
     <>
@@ -75,9 +71,7 @@ export const CharactersList = ({
         {isLoadingMore && <Loader size='small' />}
       </div>
 
-      {!hasMore && (
-        <p className='characters-list__end'>{t('charactersList.end')}</p>
-      )}
+      {!hasMore && <p className='characters-list__end'>{t('list.end')}</p>}
     </>
   );
 };

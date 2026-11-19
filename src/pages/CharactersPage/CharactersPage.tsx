@@ -7,7 +7,7 @@ import { ErrorBoundary, ErrorFallback } from '@/shared/ui';
 import './CharactersPage.scss';
 
 export const CharactersPage = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['common', 'characters']);
   const {
     characters,
     isLoading,
@@ -28,7 +28,7 @@ export const CharactersPage = () => {
           className='characters-page__banner-image'
           src={BannerCharactersPage}
           loading='lazy'
-          alt={t('charactersPage.bannerImage')}
+          alt={t('bannerImage', { ns: 'characters' })}
         />
       </div>
       <div className='characters-page__body'>
@@ -38,7 +38,7 @@ export const CharactersPage = () => {
         />
         <ErrorBoundary
           fallback={
-            <ErrorFallback messageKey='errorBoundaryFallback.charactersList' />
+            <ErrorFallback messageKey='common:errorBoundaryFallback.list' />
           }
         >
           <section

@@ -1,0 +1,15 @@
+{
+  "bannerImage": "Banner Rick and Morty",
+  "filters": {
+    "namePlaceholder": "Filter by name...",
+    "speciesPlaceholder": "Species",
+    "genderPlaceholder": "Gender",
+    "statusPlaceholder": "Status"
+  },
+  "list": {
+    "loading": "Loading characters...",
+    "error": "Server error. Please try again later.",
+    "empty": "No characters found. Try another filter.",
+    "end": "No more characters..."
+  }
+}

@@ -6,7 +6,7 @@ import { STATUS_OPTIONS } from '@/shared/constants';
 import './CharacterPage.scss';
 
 export const CharacterPage = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['character', 'common']);
   const { id } = useParams<{ id: string }>();
   const characterId = Number(id);
   const { isLoading, isError, character, isNotFound } =
@@ -17,7 +17,7 @@ export const CharacterPage = () => {
       <div className='character-page__loader'>
         <Loader
           size='medium'
-          text={t('characterPage.loading')}
+          text={t('loading')}
         />
       </div>
     );
@@ -38,7 +38,7 @@ export const CharacterPage = () => {
         className='character-page__error'
         role='alert'
       >
-        🤷‍♂️ {t('characterPage.notFound')}
+        🤷‍♂️ {t('notFound')}
       </p>
     );
   }
@@ -56,9 +56,9 @@ export const CharacterPage = () => {
       <div className='character-page__actions'>
         <Link
           to='/'
-          aria-label={t('characterPage.back')}
+          aria-label={t('back')}
         >
-          <ButtonBack text={t('buttonBack.text')} />
+          <ButtonBack text={t('buttonBack.text', { ns: 'common' })} />
         </Link>
       </div>
       <div className='character-page__body'>
@@ -80,7 +80,7 @@ export const CharacterPage = () => {
             id='info-title'
             className='character-page__list-title'
           >
-            {t('characterPage.information')}
+            {t('information')}
           </h2>
           <ol
             className='character-page__list'
@@ -88,13 +88,13 @@ export const CharacterPage = () => {
           >
             <li className='character-page__item'>
               <span className='character-page__title'>
-                {t('characterPage.gender')}
+                {t('fields.gender')}
               </span>
               <span className='character-page__option'>{character.gender}</span>
             </li>
             <li className='character-page__item'>
               <span className='character-page__title'>
-                {t('characterPage.status')}
+                {t('fields.status')}
               </span>
               <span className='character-page__option'>
                 {currentStatus?.label}
@@ -102,7 +102,7 @@ export const CharacterPage = () => {
             </li>
             <li className='character-page__item'>
               <span className='character-page__title'>
-                {t('characterPage.species')}
+                {t('fields.species')}
               </span>
               <span className='character-page__option'>
                 {character.species}
@@ -110,23 +110,21 @@ export const CharacterPage = () => {
             </li>
             <li className='character-page__item'>
               <span className='character-page__title'>
-                {t('characterPage.origin')}
+                {t('fields.origin')}
               </span>
               <span className='character-page__option'>
                 {character.origin.name}
               </span>
             </li>
             <li className='character-page__item'>
-              <span className='character-page__title'>
-                {t('characterPage.type')}
-              </span>
+              <span className='character-page__title'>{t('fields.type')}</span>
               <span className='character-page__option'>
                 {character.type || 'Unknown'}
               </span>
             </li>
             <li className='character-page__item'>
               <span className='character-page__title'>
-                {t('characterPage.location')}
+                {t('fields.location')}
               </span>
               <span className='character-page__option'>
                 {character.location.name}

@@ -13,7 +13,7 @@ import './shared/i18n';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ErrorBoundary
-      fallback={<ErrorFallback messageKey='errorBoundaryFallback.global' />}
+      fallback={<ErrorFallback messageKey='errorBoundaryFallback.default' />}
     >
       <QueryClientProvider client={queryClient}>
         <ThemeProvider>
