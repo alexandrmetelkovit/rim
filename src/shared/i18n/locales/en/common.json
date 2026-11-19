@@ -1,4 +1,13 @@
 {
+  "header": {
+    "logoAlt": "Logo",
+    "themeLight": "Switch to light theme",
+    "themeDark": "Switch to dark theme",
+    "langButton": "EN"
+  },
+  "footer": {
+    "text": "Made with love by Ax"
+  },
   "characterCard": {
     "gender": "Gender",
     "species": "Species",

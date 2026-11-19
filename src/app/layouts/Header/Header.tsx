@@ -7,7 +7,7 @@ import { LogoLightTheme, MoonIcon, SunIcon } from '@/assets';
 import './Header.scss';
 
 export const Header = () => {
-  const { t } = useTranslation('header');
+  const { t } = useTranslation('common');
   const { resetFilters } = useCharactersWithFilters();
   const theme = useThemeStore((state) => state.theme);
   const toggleTheme = useThemeStore((state) => state.toggleTheme);
@@ -29,7 +29,7 @@ export const Header = () => {
           <Button
             icon={isDark ? <MoonIcon /> : <SunIcon />}
             onClick={toggleTheme}
-            aria-label={isDark ? t('themeLight') : t('themeDark')}
+            aria-label={isDark ? t('header.themeLight') : t('header.themeDark')}
           />
           <LangSwitcher />
         </div>
