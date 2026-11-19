@@ -6,3 +6,4 @@ export * from './StatusOption/StatusOption';
 export * from './TextInput/TextInput';
 export * from './ErrorBoundary/ErrorBoundary';
 export * from './ErrorBoundary/ErrorFallback/ErrorFallback';
+export * from './LangSwitcher/LangSwitcher';

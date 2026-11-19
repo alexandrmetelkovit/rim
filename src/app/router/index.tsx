@@ -8,7 +8,9 @@ export const router = createBrowserRouter(
     {
       path: '/',
       element: <App />,
-      errorElement: <ErrorFallback message='Sorry, something went wrong' />,
+      errorElement: (
+        <ErrorFallback messageKey='errorBoundaryFallback.default' />
+      ),
       children: [
         {
           index: true,

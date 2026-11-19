@@ -1,11 +1,13 @@
+import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib';
 import { BannerCharactersPage } from '@/assets';
 import { CharactersList, FilterPanel } from '@/widgets';
-import { ErrorBoundary, ErrorFallback } from '@/shared/ui';
 import { useCharactersWithFilters } from '@/shared/hooks';
+import { ErrorBoundary, ErrorFallback } from '@/shared/ui';
 import './CharactersPage.scss';
 
 export const CharactersPage = () => {
+  const { t } = useTranslation(['common', 'characters']);
   const {
     characters,
     isLoading,
@@ -26,7 +28,7 @@ export const CharactersPage = () => {
           className='characters-page__banner-image'
           src={BannerCharactersPage}
           loading='lazy'
-          alt='Banner Rick and Morty'
+          alt={t('bannerImage', { ns: 'characters' })}
         />
       </div>
       <div className='characters-page__body'>
@@ -35,7 +37,9 @@ export const CharactersPage = () => {
           updateFilters={handleFilterChange}
         />
         <ErrorBoundary
-          fallback={<ErrorFallback message='Failed to load characters list' />}
+          fallback={
+            <ErrorFallback messageKey='common:errorBoundaryFallback.list' />
+          }
         >
           <section
             className={classNames('characters-page__list', {

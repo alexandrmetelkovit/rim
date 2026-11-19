@@ -3,11 +3,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: -2px 0 8px 2px var(--box-shadow-footer);
   font-family: Karla, sans-serif;
   font-weight: 700;
   font-size: 18px;
-  user-select: none;
+  box-shadow: -2px 0 8px 2px var(--color-shadow-footer);
   background-color: var(--color-bg-footer);
   color: var(--color-text);
 }

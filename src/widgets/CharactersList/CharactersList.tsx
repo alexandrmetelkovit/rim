@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Loader } from '@/shared/ui';
 import { CharacterCard } from '@/widgets';
 import { useInfiniteScroll } from '@/shared/hooks';
@@ -23,6 +24,7 @@ export const CharactersList = ({
   isLoadingMore,
   updateCharacter
 }: CharactersListProps) => {
+  const { t } = useTranslation('characters');
   const { triggerRef } = useInfiniteScroll(loadMore);
   const isEmpty = characters.length === 0;
 
@@ -30,7 +32,7 @@ export const CharactersList = ({
     return (
       <Loader
         size='medium'
-        text='Loading characters...'
+        text={t('list.loading')}
       />
     );
   }
@@ -41,19 +43,14 @@ export const CharactersList = ({
         className='characters-list__error'
         role='alert'
       >
-        ⚠️ Server error. Please try again later.
+        ⚠️ {t('list.error')}
       </span>
     );
   }
 
   if (isEmpty) {
-    return (
-      <span className='characters-list__empty'>
-        🤷‍♂️ No characters found. Try another filter.
-      </span>
-    );
+    return <span className='characters-list__empty'>🤷‍♂️ {t('list.empty')}</span>;
   }
-
   return (
     <>
       <ol className='characters-list'>
@@ -74,9 +71,7 @@ export const CharactersList = ({
         {isLoadingMore && <Loader size='small' />}
       </div>
 
-      {!hasMore && (
-        <p className='characters-list__end'>No more characters...</p>
-      )}
+      {!hasMore && <p className='characters-list__end'>{t('list.end')}</p>}
     </>
   );
 };

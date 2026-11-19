@@ -1,0 +1,15 @@
+{
+  "bannerImage": "Баннер Рик и Морти",
+  "filters": {
+    "namePlaceholder": "Фильтр по имени...",
+    "speciesPlaceholder": "Вид",
+    "genderPlaceholder": "Пол",
+    "statusPlaceholder": "Статус"
+  },
+  "list": {
+    "loading": "Загрузка персонажей...",
+    "error": "Ошибка сервера. Попробуйте позже.",
+    "empty": "Персонажи не найдены. Попробуйте другой фильтр.",
+    "end": "Больше нет персонажей..."
+  }
+}

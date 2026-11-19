@@ -1,0 +1,14 @@
+{
+  "back": "Back to characters list",
+  "information": "Information",
+  "fields": {
+    "gender": "Gender",
+    "species": "Species",
+    "location": "Location",
+    "status": "Status",
+    "origin": "Origin",
+    "type": "Type"
+  },
+  "notFound": "Character not found...",
+  "loading": "Loading character card..."
+}
