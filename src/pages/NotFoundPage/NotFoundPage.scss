@@ -33,4 +33,20 @@
       opacity: 0.7;
     }
   }
+
+  @media (max-width: 375px) {
+    padding: 80px 0;
+    gap: 40px;
+
+    &__image {
+      min-width: 290px;
+      min-height: 150px;
+    }
+
+    &__back {
+      width: 190px;
+      display: flex;
+      font-size: 16px;
+    }
+  }
 }

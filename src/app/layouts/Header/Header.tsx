@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useThemeStore } from '@/stores';
 import { Button, LangSwitcher } from '@/shared/ui';
 import { useCharactersWithFilters } from '@/shared/hooks';
-import { LogoLightTheme, MoonIcon, SunIcon } from '@/assets';
+import { LogoHeader, MoonIcon, SunIcon } from '@/assets';
 import './Header.scss';
 
 export const Header = () => {
@@ -22,7 +22,7 @@ export const Header = () => {
             to='/'
             onClick={resetFilters}
           >
-            <LogoLightTheme className='header__logo-image' />
+            <LogoHeader className='header__logo-image' />
           </Link>
         </div>
         <div className='header__actions'>

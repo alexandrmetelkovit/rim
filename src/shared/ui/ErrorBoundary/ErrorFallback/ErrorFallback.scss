@@ -24,4 +24,17 @@
       background: #2563eb;
     }
   }
+
+  @media (max-width: 360px) {
+    height: 40vh;
+
+    p {
+      font-size: 20px;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 6px 8px;
+    }
+  }
 }
