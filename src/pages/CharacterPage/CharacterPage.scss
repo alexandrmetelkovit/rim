@@ -98,4 +98,51 @@
     justify-content: center;
     align-items: center;
   }
+
+  @media (max-width: 375px) {
+    padding: 24px 24px 16px;
+
+    &__actions {
+      margin-bottom: 16px;
+    }
+
+    &__body {
+      gap: 33px;
+    }
+
+    &__header {
+      min-width: 312px;
+      min-height: 212px;
+      gap: 33px;
+    }
+
+    &__image {
+      min-width: 146px;
+      height: 148px;
+    }
+
+    &__name {
+      font-size: 32px;
+    }
+
+    &__info {
+      min-width: 312px;
+      min-height: 444px;
+      gap: 36px;
+    }
+
+    &__list {
+      width: 312px;
+      padding: 0 16px;
+    }
+
+    &__error {
+      min-width: 350px;
+      min-height: 45vh;
+    }
+
+    &__loader {
+      min-height: 60vh;
+    }
+  }
 }

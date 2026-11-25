@@ -1,16 +1,18 @@
 import React from 'react';
+import { classNames } from '@/shared/lib';
 import './Button.scss';
 
 interface ButtonProps {
   text?: string;
   icon?: React.ReactNode;
   onClick?: () => void;
+  className?: string;
 }
 
-export const Button = ({ text, icon, onClick }: ButtonProps) => {
+export const Button = ({ text, icon, onClick, className }: ButtonProps) => {
   return (
     <button
-      className='button'
+      className={classNames('button', className)}
       type='button'
       onClick={onClick}
     >

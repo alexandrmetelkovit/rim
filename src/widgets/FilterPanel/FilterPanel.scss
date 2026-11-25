@@ -1,6 +1,83 @@
 .filter-panel {
+  width: 100%;
   display: flex;
-  gap: 28px;
   justify-content: center;
   align-items: center;
+  gap: 28px;
+  min-width: 375px;
+
+  &__toggle {
+    display: none;
+  }
+
+  &__selects {
+    display: flex;
+    gap: 28px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 15px;
+
+    &__toggle {
+      display: flex;
+      align-items: center;
+      min-width: 340px;
+      min-height: 56px;
+
+      padding: 10px 16px;
+      font-weight: 500;
+      text-transform: uppercase;
+      background-color: #e3f2fd;
+      border: none;
+
+      .button__text {
+        font-size: 14px;
+        letter-spacing: 1.25px;
+        color: #2196f3;
+      }
+    }
+
+    &__selects {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+
+      &_open {
+        display: flex;
+      }
+    }
+  }
+
+  @media (max-width: 375px) {
+    flex-direction: column;
+    gap: 16px;
+    min-width: 312px;
+    width: 100%;
+
+    &__icon {
+      display: inline-flex;
+      transition: transform 0.2s ease;
+
+      &_open {
+        transform: rotate(180deg);
+      }
+    }
+
+    &__toggle {
+      min-width: 312px;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    &__selects {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+
+      &_open {
+        display: flex;
+      }
+    }
+  }
 }

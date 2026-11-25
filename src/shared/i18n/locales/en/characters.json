@@ -4,7 +4,9 @@
     "namePlaceholder": "Filter by name...",
     "speciesPlaceholder": "Species",
     "genderPlaceholder": "Gender",
-    "statusPlaceholder": "Status"
+    "statusPlaceholder": "Status",
+    "more": "More filters",
+    "less": "Less filters"
   },
   "list": {
     "loading": "Loading characters...",

@@ -1,7 +1,8 @@
-import LogoLightTheme from './images/header-logo-image/logo.svg?react';
+import LogoHeader from './images/header-logo-image/logo.svg?react';
 import SunIcon from './icons/header/sun.svg?react';
 import MoonIcon from './icons/header/moon.svg?react';
 import ArrowBack from './icons/arrow_back.svg?react';
+import FilterList from './icons/filter-list.svg?react';
 import ArrowDown from './icons/arrow-drop-down.svg?react';
 import SearchIcon from './icons/search-icon.svg?react';
 import SearchClearIcon from './icons/search-clear-icon.svg?react';
@@ -14,7 +15,7 @@ import LoaderSmall from './images/loaders-image/loader_small.webp';
 import NotFoundPageImage from './images/layout-image/not-found.webp';
 
 export {
-  LogoLightTheme,
+  LogoHeader,
   SunIcon,
   MoonIcon,
   BannerCharactersPage,
@@ -22,6 +23,7 @@ export {
   LoaderSmall,
   ArrowBack,
   ArrowDown,
+  FilterList,
   SearchIcon,
   SearchClearIcon,
   EditIcon,

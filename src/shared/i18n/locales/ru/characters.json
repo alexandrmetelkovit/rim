@@ -4,7 +4,9 @@
     "namePlaceholder": "Фильтр по имени...",
     "speciesPlaceholder": "Вид",
     "genderPlaceholder": "Пол",
-    "statusPlaceholder": "Статус"
+    "statusPlaceholder": "Статус",
+    "more": "Больше фильтров",
+    "less": "Меньше фильтров"
   },
   "list": {
     "loading": "Загрузка персонажей...",
